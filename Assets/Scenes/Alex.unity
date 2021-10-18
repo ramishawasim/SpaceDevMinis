@@ -5124,7 +5124,7 @@ MonoBehaviour:
   jumpControl: {fileID: -3589842511284467399, guid: 3b248ac182b6761458490592f8cf359b, type: 3}
   playerSpeed: 4.5
   jumpHeight: 1
-  gravityValue: -9.81
+  gravityValue: -12.5
   rotationSpeed: 5
 --- !u!114 &437515846
 MonoBehaviour:
