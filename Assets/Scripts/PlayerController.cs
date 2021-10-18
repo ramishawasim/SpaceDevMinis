@@ -25,13 +25,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         movementControl.action.Enable();
-        movementControl.action.Enable();
+        jumpControl.action.Enable();
     }
 
     private void OnDisable()
     {
         movementControl.action.Disable();
-        movementControl.action.Disable();
+        jumpControl.action.Disable();
     }
 
     private void Start()
@@ -54,14 +54,13 @@ public class PlayerController : MonoBehaviour
         move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        // Changes the height position of the player..
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
+
         if (jumpControl.action.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
 
         if (movement != Vector2.zero) {
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
