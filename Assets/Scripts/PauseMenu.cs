@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         action = new PauseAction();
+        
     }
 
     private void OnEnable()
@@ -53,9 +54,10 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        button.SetActive(true);
         Time.timeScale = 1f;
         paused = false;
-        button.SetActive(true);
+        //button.SetActive(true);
 
     }
 
