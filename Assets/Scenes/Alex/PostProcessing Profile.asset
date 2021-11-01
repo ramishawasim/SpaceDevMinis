@@ -133,11 +133,11 @@ MonoBehaviour:
   m_Name: PostProcessing Profile
   m_EditorClassIdentifier: 
   components:
+  - {fileID: 1061726867810054738}
   - {fileID: -6770202069258818308}
   - {fileID: -6628360417540653440}
   - {fileID: -881582516660384060}
   - {fileID: 7950842759981551676}
-  - {fileID: 1061726867810054738}
 --- !u!114 &1061726867810054738
 MonoBehaviour:
   m_ObjectHideFlags: 3
