@@ -52,7 +52,11 @@
             "m_Id": "d44df0fc6ddc472f9b3f460355bf52bf"
         }
     ],
-    "m_Keywords": [],
+    "m_Keywords": [
+        {
+            "m_Id": "3e184689ae2c4f2092998e4d2de3265a"
+        }
+    ],
     "m_Nodes": [
         {
             "m_Id": "81caaf27de5b4147ba849a2fbf2ae27f"
@@ -4034,6 +4038,25 @@
         "y": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.ShaderKeyword",
+    "m_ObjectId": "3e184689ae2c4f2092998e4d2de3265a",
+    "m_Guid": {
+        "m_GuidSerialized": "f4aed5d3-3df4-44e6-9f3a-0c967fd4fb08"
+    },
+    "m_Name": "_RECEIVE_SHADOWS_OFF",
+    "m_DefaultReferenceName": "BOOLEAN_3E184689AE2C4F2092998E4D2DE3265A_ON",
+    "m_OverrideReferenceName": "_RECEIVE_SHADOWS_OFF",
+    "m_GeneratePropertyBlock": true,
+    "m_KeywordType": 0,
+    "m_KeywordDefinition": 0,
+    "m_KeywordScope": 1,
+    "m_Entries": [],
+    "m_Value": 1,
+    "m_IsEditable": true
 }
 
 {

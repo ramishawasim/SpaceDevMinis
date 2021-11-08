@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Waves
   m_Shader: {fileID: -6465566751694194690, guid: d5b0e78395d56384387f97d82abec4a4, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -48,7 +48,7 @@ Material:
     - Vector1_aa09b000108b4836a84ddea05dfe1284: 0.15
     - Vector1_cf92bc80f5da453284304d59ce1c949e: 1
     - Vector1_d44df0fc6ddc472f9b3f460355bf52bf: 1.5
-    - Vector1_d4a3af40976d49ea9a435dd87e9fa56d: 0.15
+    - Vector1_d4a3af40976d49ea9a435dd87e9fa56d: 0.14
     - Vector1_d7ac16850eae4996aa4f6fd740344a18: 1
     - Vector1_da47fa6e6ef34b9ea16f5f3bafd17b7b: 0.2
     - Vector1_e6668b1beaeb4440bf2c0d07d44ef155: 0.15
