@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Waves
   m_Shader: {fileID: -6465566751694194690, guid: d5b0e78395d56384387f97d82abec4a4, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -43,16 +43,18 @@ Material:
     - Vector1_032a78f6162d4accbf96e49371a2439a: 5
     - Vector1_2340b3d4dfc544c79c66b9d696b9e60c: 1
     - Vector1_6af709149bec4122abd6fa5d6835c4d7: 0.08
+    - Vector1_7bd002617cee42fc80e6d09764302561: 10
     - Vector1_842c38b4661143499001d89fa8743f1c: 0.0025
     - Vector1_aa09b000108b4836a84ddea05dfe1284: 0.15
     - Vector1_cf92bc80f5da453284304d59ce1c949e: 1
     - Vector1_d44df0fc6ddc472f9b3f460355bf52bf: 1.5
-    - Vector1_d4a3af40976d49ea9a435dd87e9fa56d: 30
+    - Vector1_d4a3af40976d49ea9a435dd87e9fa56d: 0.14
     - Vector1_d7ac16850eae4996aa4f6fd740344a18: 1
     - Vector1_da47fa6e6ef34b9ea16f5f3bafd17b7b: 0.2
-    - Vector1_e6668b1beaeb4440bf2c0d07d44ef155: 0
+    - Vector1_e6668b1beaeb4440bf2c0d07d44ef155: 0.15
     - Vector1_e85dc0a9f32f404189321aaf1f8939a9: 1
     - Vector1_f8f06e8d7b2f4e0594420492b2ea5fa2: 5
+    - Vector1_f921dcf31292442da05b1370f6b818c9: 0.85
     m_Colors:
     - Color_5bece0e407604778b65823297ca5270c: {r: 0.1552862, g: 0.23292929, b: 0.41594517, a: 1}
     - Color_f47bd2317cca460ea0abbd47b9cafd24: {r: 0.13864839, g: 0.23292929, b: 0.37712362, a: 1}
