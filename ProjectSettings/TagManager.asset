@@ -7,6 +7,8 @@ TagManager:
   - Enemies
   - Collectable1
   - Collectable2
+  - TargetPlatform
+  - PushCollider
   layers:
   - Default
   - TransparentFX
