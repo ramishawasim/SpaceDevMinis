@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PushingBlockPlatform
-  m_Shader: {fileID: -6465566751694194690, guid: e1384f91520839f4bb6e2f2f0ca081ae, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: bd6b8a7cac264e34eb435a61d2887143, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -94,6 +94,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EmissionBrightness: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -111,7 +112,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_1a9f95b602f64b099e0cf51656ca154a: {r: 4.237095, g: 3.9708898, b: 0, a: 0}
     - Color_438f24face0841cc8b85245fc9d9b74a: {r: 0, g: 0.49019608, b: 1, a: 1}
+    - Color_b7ab5412ce7b4a03ba374ff9038ddf93: {r: 0.90588236, g: 0.90588236, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 0.96657693, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
