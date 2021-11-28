@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 9161894529425183318}
   - component: {fileID: 9161894529425183317}
   m_Layer: 0
-  m_Name: TestEnemyCollider
+  m_Name: DELETE TestEnemyCollider
   m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

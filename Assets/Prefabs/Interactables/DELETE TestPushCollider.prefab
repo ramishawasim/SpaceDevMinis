@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7791476205303741642}
   - component: {fileID: 7791476205303741649}
   m_Layer: 0
-  m_Name: TestPushCollider
+  m_Name: DELETE TestPushCollider
   m_TagString: PushCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

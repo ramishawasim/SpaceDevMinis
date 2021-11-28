@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 311022165583228023}
   m_Layer: 0
-  m_Name: Player + Camera + Global PostProcessing
+  m_Name: DELETE Player + Camera + Global PostProcessing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
