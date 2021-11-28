@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     private Transform playerPositionTransform;
     
     private NavMeshAgent navMeshAgent;
+    public LayerMask whatIsPlayer;
 
     // Patrolling
 
@@ -32,9 +33,11 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void Update()
-    {        
-        Patrolling();
-        // ChasePlayer();
+    {
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+
+        if (!playerInSightRange) Patrolling();
+        else ChasePlayer();
     }
 
     private void Patrolling()
@@ -73,5 +76,12 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         navMeshAgent.destination = playerPositionTransform.position;
+        transform.LookAt(playerPositionTransform);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        //see range
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }
