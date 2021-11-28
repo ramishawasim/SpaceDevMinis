@@ -30,6 +30,7 @@ public class EnemyAI : MonoBehaviour
 
     public float sightRange;
     private bool playerInSightRange;
+    public float stateUpdateTime;
 
     private void Awake()
     {
@@ -37,14 +38,19 @@ public class EnemyAI : MonoBehaviour
         navMeshAgent.speed = patrolSpeed;
         navMeshAgent.angularSpeed = patrolAngleSpeed;
         StartCoroutine(walkPointChangeLogic());
+        StartCoroutine(stateUpdate());
     }
 
-    private void Update()
+    IEnumerator stateUpdate()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        for (; ; )
+        {
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
 
-        if (!playerInSightRange) Patrolling();
-        else ChasePlayer();
+            if (!playerInSightRange) Patrolling();
+            else ChasePlayer();
+            yield return new WaitForSeconds(stateUpdateTime);
+        }
     }
 
     private void Patrolling()
