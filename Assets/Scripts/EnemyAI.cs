@@ -11,6 +11,11 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     public LayerMask whatIsPlayer;
 
+    public float patrolSpeed;
+    public float chaseSpeed;
+    public float patrolAngleSpeed;
+    public float chaseAngleSpeed;
+
     // Patrolling
 
     private Vector3 walkPoint;
@@ -29,6 +34,8 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = patrolSpeed;
+        navMeshAgent.angularSpeed = patrolAngleSpeed;
         StartCoroutine(walkPointChangeLogic());
     }
 
@@ -42,6 +49,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrolling()
     {
+        navMeshAgent.speed = patrolSpeed;
+        navMeshAgent.angularSpeed = patrolAngleSpeed;
         navMeshAgent.destination = walkPoint;
     }
 
@@ -75,8 +84,9 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
+        navMeshAgent.speed = chaseSpeed;
+        navMeshAgent.angularSpeed = chaseAngleSpeed;
         navMeshAgent.destination = playerPositionTransform.position;
-        transform.LookAt(playerPositionTransform);
     }
     private void OnDrawGizmosSelected()
     {
