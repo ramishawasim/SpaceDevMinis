@@ -11,7 +11,11 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        enemy.navMeshAgent.destination = enemy.walkPoint;
+        enemy.navMeshAgent.CalculatePath(enemy.walkPoint, enemy.path);
+        if (enemy.path.status == NavMeshPathStatus.PathComplete)
+        {
+            enemy.navMeshAgent.destination = enemy.walkPoint;
+        }
         enemy.playerInSightRange = Physics.CheckSphere(enemy.navMeshAgent.transform.position, enemy.sightRange, enemy.whatIsPlayer);
         if (enemy.playerInSightRange) enemy.SwitchState(enemy.ChaseState);
     }

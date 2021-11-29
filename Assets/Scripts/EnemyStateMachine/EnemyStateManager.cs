@@ -39,10 +39,12 @@ public class EnemyStateManager : MonoBehaviour
     public float sightRange;
     public bool playerInSightRange;
     public float stateUpdateTime = 0.2f;
+    public NavMeshPath path;
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        path = new NavMeshPath();
         walkPoint = transform.position;
         currentState = PatrolState;
         currentState.EnterState(this);
