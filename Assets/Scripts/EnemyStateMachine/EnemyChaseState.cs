@@ -11,6 +11,7 @@ public class EnemyChaseState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
+        enemy.playerInSightRange = Physics.CheckSphere(enemy.navMeshAgent.transform.position, enemy.sightRange, enemy.whatIsPlayer);
         enemy.navMeshAgent.CalculatePath(enemy.playerPositionTransform.position, enemy.path);
         if (enemy.path.status == NavMeshPathStatus.PathComplete)
         {
@@ -18,9 +19,8 @@ public class EnemyChaseState : EnemyBaseState
         }
         else
         {
-            // enemy.navMeshAgent.transform.LookAt(enemy.playerPositionTransform.position);
+            enemy.SwitchState(enemy.PatrolState);
         }
-        enemy.playerInSightRange = Physics.CheckSphere(enemy.navMeshAgent.transform.position, enemy.sightRange, enemy.whatIsPlayer);
         if (!enemy.playerInSightRange) enemy.SwitchState(enemy.PatrolState);
     }
 }

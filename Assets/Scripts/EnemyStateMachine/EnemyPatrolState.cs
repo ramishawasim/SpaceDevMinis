@@ -17,6 +17,7 @@ public class EnemyPatrolState : EnemyBaseState
             enemy.navMeshAgent.destination = enemy.walkPoint;
         }
         enemy.playerInSightRange = Physics.CheckSphere(enemy.navMeshAgent.transform.position, enemy.sightRange, enemy.whatIsPlayer);
-        if (enemy.playerInSightRange) enemy.SwitchState(enemy.ChaseState);
+        enemy.navMeshAgent.CalculatePath(enemy.playerPositionTransform.position, enemy.path);
+        if (enemy.playerInSightRange && enemy.path.status == NavMeshPathStatus.PathComplete) enemy.SwitchState(enemy.ChaseState);
     }
 }
