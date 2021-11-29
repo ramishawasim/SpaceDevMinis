@@ -43,7 +43,7 @@ public class EnemyStateManager : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        walkPoint = navMeshAgent.transform.position;
+        walkPoint = transform.position;
         currentState = PatrolState;
         currentState.EnterState(this);
         StartCoroutine(walkPointChangeLogic());
@@ -54,7 +54,6 @@ public class EnemyStateManager : MonoBehaviour
     {
         for (; ; )
         {
-            playerInSightRange = Physics.CheckSphere(navMeshAgent.transform.position, sightRange, whatIsPlayer);
             currentState.UpdateState(this);
             yield return new WaitForSeconds(stateUpdateTime);
         }
@@ -91,8 +90,7 @@ public class EnemyStateManager : MonoBehaviour
         float randomX = Random.Range(-walkPointRange - walkPointMinimum, walkPointRange + walkPointMinimum);
 
         walkPoint = new Vector3(navMeshAgent.transform.position.x + randomX, navMeshAgent.transform.position.y, navMeshAgent.transform.position.z + randomZ);
-        if (Physics.Raycast(walkPoint, -transform.up, 1f, whatIsNotPlayer))
-            walkPointSet = true;
+        walkPointSet = true;
     }
 
     private void OnDrawGizmosSelected()
