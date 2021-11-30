@@ -17,9 +17,9 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 679
+    x: 732
     y: -190
-    width: 688
+    width: 635
     height: 1837
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -597,7 +597,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-0.15000000596046449,"y":0.30000001192092898,"z":-0.125}}'
+      m_SerializableObject: '{"vector":{"x":-0.14000000059604646,"y":0.30000001192092898,"z":-0.10999999940395355}}'
     m_Space: 0
   m_Property:
     name: A
@@ -767,7 +767,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.009999999776482582,"y":0.4000000059604645,"z":0.10000000149011612}}'
+      m_SerializableObject: '{"vector":{"x":0.009999999776482582,"y":0.4000000059604645,"z":0.11999999731779099}}'
     m_Space: 0
   m_Property:
     name: B
@@ -1328,7 +1328,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614627}
       inputSlot: {fileID: 8926484042661614633}
-    position: {x: 679, y: 460}
+    position: {x: 732, y: 523}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614627
