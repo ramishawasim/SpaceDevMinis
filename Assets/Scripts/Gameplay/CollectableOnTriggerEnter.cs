@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class CollectableOnTriggerEnter : MonoBehaviour
 {
-    public Text collectableCounter;
+    private Text collectableCounter;
     public int collectableNumber;
     private int collectable = 0;
+
+    private GameObject blockade1;
 
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class CollectableOnTriggerEnter : MonoBehaviour
             GameObject counterRef = GameObject.Find("Collectable2Counter");
             collectableCounter = counterRef.GetComponent<Text>();
         }
+
+        blockade1 = GameObject.Find("Blockade1");
     }
 
     private void OnTriggerEnter(Collider hit)
@@ -30,6 +34,10 @@ public class CollectableOnTriggerEnter : MonoBehaviour
         {
             collectable = int.Parse (collectableCounter.text);
             collectable++;
+            if (collectable == 50)
+            {
+                Destroy(blockade1);
+            }
             Destroy(gameObject);
             UpdateGUI();
         }
