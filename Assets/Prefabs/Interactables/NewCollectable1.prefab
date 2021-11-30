@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4922936625214225129}
   - component: {fileID: 4922936625214225128}
+  - component: {fileID: 287919162443800869}
   m_Layer: 0
   m_Name: NewCollectable1
   m_TagString: Collectable1
@@ -40,11 +41,25 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4922936625214225142}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &287919162443800869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922936625214225142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab06a88b5f0d673469743a3aada67f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectableCounter: {fileID: 0}
+  collectableNumber: 1
 --- !u!1 &4922936625273646461
 GameObject:
   m_ObjectHideFlags: 0
