@@ -95,6 +95,14 @@ public class EnemyStateManager : MonoBehaviour
         walkPointSet = true;
     }
 
+    private void OnTriggerEnter(Collider hit)
+    {
+        if (hit.tag == "Player")
+        {
+            Debug.Log("KILL");
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         //see range

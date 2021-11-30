@@ -41,11 +41,6 @@ public class PlayerCollide : MonoBehaviour
             Destroy(hit.gameObject);
             UpdateGUI();
         }
-
-        else if (hit.gameObject.tag == "Enemies")
-        {
-            reset();
-        }
     }
 
     private void UpdateGUI()
