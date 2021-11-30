@@ -28,7 +28,6 @@ public class CollectableOnTriggerEnter : MonoBehaviour
     {
         if (hit.tag == "Player")
         {
-            Debug.Log("Collectable Collected");
             collectable = int.Parse (collectableCounter.text);
             collectable++;
             Destroy(gameObject);
