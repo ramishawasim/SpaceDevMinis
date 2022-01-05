@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PushingBlock
-  m_Shader: {fileID: -6465566751694194690, guid: e1384f91520839f4bb6e2f2f0ca081ae, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: bd6b8a7cac264e34eb435a61d2887143, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -81,6 +81,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_0a1ef39f7a6a4d95afe07ac5f876e580: 0
+    - Vector1_61751f6b92554d9b9cbe2734ce1682a2: 0.55
+    - Vector1_6ce9043dbc3243eab6ed872d5db67851: 1
     - Vector1_9ba683c8b17749049d484e34df47cda1: 8
     - Vector1_b0a3292213ba4f16bd4f6d1d956b8540: 0
     - Vector1_e0ca78d8837b413ab29d382824336b6f: 0.5
@@ -94,6 +96,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EmissionBrightness: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -111,7 +114,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_438f24face0841cc8b85245fc9d9b74a: {r: 0.9056604, g: 0.9039437, b: 0, a: 0}
+    - Color_1a9f95b602f64b099e0cf51656ca154a: {r: 0.19372666, g: 0, b: 5.992157, a: 0}
+    - Color_438f24face0841cc8b85245fc9d9b74a: {r: 0, g: 0.49019608, b: 1, a: 1}
+    - Color_b7ab5412ce7b4a03ba374ff9038ddf93: {r: 0.3420256, g: 0.21827163, b: 0.4245283, a: 0}
     - _BaseColor: {r: 1, g: 0.96657693, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
