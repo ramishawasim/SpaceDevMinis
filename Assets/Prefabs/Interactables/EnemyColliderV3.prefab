@@ -267,7 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   patrolSpeed: 3.5
-  chaseSpeed: 5.5
+  chaseSpeed: 6
   patrolAngleSpeed: 250
   chaseAngleSpeed: 500
   walkPoint: {x: 0, y: 0, z: 0}
