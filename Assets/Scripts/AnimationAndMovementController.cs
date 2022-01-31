@@ -120,8 +120,8 @@ public class AnimationAndMovementController : MonoBehaviour
             currentRunMovement.y = groundedGravity;
         } else {
             float gravity = -9.8f;
-            currentMovement.y += gravity;
-            currentRunMovement.y += gravity;
+            currentMovement.y += gravity * Time.deltaTime;
+            currentRunMovement.y += gravity * Time.deltaTime;
         }
     }
 
