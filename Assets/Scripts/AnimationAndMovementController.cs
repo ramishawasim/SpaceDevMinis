@@ -21,7 +21,8 @@ public class AnimationAndMovementController : MonoBehaviour
     bool isMovementPressed;
     bool isRunPressed;
     float rotationFactorPerFrame = 15.0f;
-    float runMultiplier = 3.0f;
+    float walkMultiplier = 2.0f;
+    float runMultiplier = 8.0f;
 
     private Transform cameraMainTransform;
 
@@ -38,7 +39,6 @@ public class AnimationAndMovementController : MonoBehaviour
 
         playerInput.CharacterControls.Move.started += onMovementInput;
         playerInput.CharacterControls.Move.canceled += onMovementInput;
-        // for controller:
         playerInput.CharacterControls.Move.performed += onMovementInput;
         playerInput.CharacterControls.Run.started += onRun;
         playerInput.CharacterControls.Run.canceled += onRun;
@@ -72,10 +72,12 @@ public class AnimationAndMovementController : MonoBehaviour
     void onMovementInput(InputAction.CallbackContext context)
     {
         currentMovementInput = context.ReadValue<Vector2>();
-        currentMovement.x = currentMovementInput.x;
-        currentMovement.z = currentMovementInput.y;
+        currentMovement.x = currentMovementInput.x * walkMultiplier;
+        currentMovement.z = currentMovementInput.y * walkMultiplier;
+        currentMovement = cameraMainTransform.forward * currentMovement.z + cameraMainTransform.right * currentMovement.x;
         currentRunMovement.x = currentMovementInput.x * runMultiplier;
         currentRunMovement.z = currentMovementInput.y * runMultiplier;
+        currentRunMovement = cameraMainTransform.forward * currentRunMovement.z + cameraMainTransform.right * currentRunMovement.x;
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
     }
 
