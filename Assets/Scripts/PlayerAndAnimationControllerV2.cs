@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class AnimationAndMovementController : MonoBehaviour
+public class PlayerAndAnimationControllerV2 : MonoBehaviour
 {
     // declare reference variables
     PlayerInput playerInput;
@@ -23,10 +23,11 @@ public class AnimationAndMovementController : MonoBehaviour
     float rotationFactorPerFrame = 15.0f;
     float walkMultiplier = 2.0f;
     float runMultiplier = 8.0f;
+    float gravity = -9.81f;
+    float rotationSpeed = 5f;
 
     private Transform cameraMainTransform;
 
-    // awake is called earlier than Start()
     private void Awake()
     {
         // initial setting of reference variables
@@ -46,39 +47,58 @@ public class AnimationAndMovementController : MonoBehaviour
         cameraMainTransform = Camera.main.transform;
     }
 
+    void onMovementInput(InputAction.CallbackContext context)
+    {
+        // Directional input
+        currentMovementInput = context.ReadValue<Vector2>();
+
+        // The camera vectors have y values, they must be removed
+        Vector3 cameraMainTransformForward = cameraMainTransform.forward;
+        Vector3 cameraMainTransformRight = cameraMainTransform.right;
+        cameraMainTransformForward.y = 0f;
+        cameraMainTransformRight.y = 0f;
+
+        // Apply input movement to movement vector
+        currentMovement.x = currentMovementInput.x;
+        currentMovement.z = currentMovementInput.y;
+
+        // Modify currentMovement and currentRunMovement vector to match camera
+        Vector3 movementModifiedByCamera = cameraMainTransformForward * currentMovement.z + cameraMainTransformRight * currentMovement.x;
+        currentMovement.x = movementModifiedByCamera.x * walkMultiplier;
+        currentMovement.z = movementModifiedByCamera.z * walkMultiplier;
+
+        currentRunMovement.x = movementModifiedByCamera.x * runMultiplier;
+        currentRunMovement.z = movementModifiedByCamera.z * runMultiplier;
+
+        isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
+    }
+
     void onRun(InputAction.CallbackContext context)
     {
         isRunPressed = context.ReadValueAsButton();
     }
-
-    void handleRotation()
+    void handleGravity()
     {
-        Vector3 positionToLookAt;
-        // the change in position our character should point to
-        positionToLookAt.x = currentMovement.x;
-        positionToLookAt.y = 0.0f;
-        positionToLookAt.z = currentMovement.z;
-        // current rotation of character
-        Quaternion currentRotation = transform.rotation;
-
-        // creates a new rotation based on where the player is currently pressing
-        if (isMovementPressed)
+        if (characterController.isGrounded)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
+            // Stick to ground if walking
+            currentMovement.y = -0.05f;
+        }
+        else
+        {
+            // else apply gravity
+            currentMovement.y += gravity * 2.0f * Time.deltaTime;
         }
     }
 
-    void onMovementInput(InputAction.CallbackContext context)
+    void handleRotation()
     {
-        currentMovementInput = context.ReadValue<Vector2>();
-        currentMovement.x = currentMovementInput.x * walkMultiplier;
-        currentMovement.z = currentMovementInput.y * walkMultiplier;
-        currentMovement = cameraMainTransform.forward * currentMovement.z + cameraMainTransform.right * currentMovement.x;
-        currentRunMovement.x = currentMovementInput.x * runMultiplier;
-        currentRunMovement.z = currentMovementInput.y * runMultiplier;
-        currentRunMovement = cameraMainTransform.forward * currentRunMovement.z + cameraMainTransform.right * currentRunMovement.x;
-        isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
+        if (currentMovementInput != Vector2.zero)
+        {
+            float targetAngle = Mathf.Atan2(currentMovementInput.x, currentMovementInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+        }
     }
 
     void handleAnimation()
@@ -94,7 +114,8 @@ public class AnimationAndMovementController : MonoBehaviour
         }
 
         // stop walking if movement is not pressed and not already walking
-        else if (!isMovementPressed && isWalking) {
+        else if (!isMovementPressed && isWalking)
+        {
             animator.SetBool(isWalkingHash, false);
         }
 
@@ -111,25 +132,13 @@ public class AnimationAndMovementController : MonoBehaviour
         }
     }
 
-    void handleGravity()
-    {
-        // apply gravity depending on being grounded
-        if (characterController.isGrounded) {
-            float groundedGravity = -0.05f;
-            currentMovement.y = groundedGravity;
-            currentRunMovement.y = groundedGravity;
-        } else {
-            float gravity = -9.8f;
-            currentMovement.y += gravity * Time.deltaTime;
-            currentRunMovement.y += gravity * Time.deltaTime;
-        }
-    }
-
     void Update()
     {
         handleGravity();
         handleRotation();
         handleAnimation();
+
+        // Final movement
         if (isRunPressed) {
             characterController.Move(currentRunMovement * Time.deltaTime);
         } else {
