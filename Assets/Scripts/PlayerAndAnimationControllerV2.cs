@@ -20,11 +20,11 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     Vector3 currentRunMovement;
     bool isMovementPressed;
     bool isRunPressed;
-    float rotationFactorPerFrame = 15.0f;
     float walkMultiplier = 2.0f;
     float runMultiplier = 8.0f;
     float gravity = -9.81f;
-    float rotationSpeed = 5f;
+    float rotationSpeed = 6.0f;
+    float runningRotationSpeed = 10.0f;
 
     private Transform cameraMainTransform;
 
@@ -93,11 +93,18 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
     void handleRotation()
     {
+        float currentRotationSpeed;
+        if (!isRunPressed) {
+            currentRotationSpeed = rotationSpeed;
+        } else {
+            currentRotationSpeed = runningRotationSpeed;
+        }
+
         if (currentMovementInput != Vector2.zero)
         {
             float targetAngle = Mathf.Atan2(currentMovementInput.x, currentMovementInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * currentRotationSpeed);
         }
     }
 
