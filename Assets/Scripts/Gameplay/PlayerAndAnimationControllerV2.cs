@@ -32,6 +32,10 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     int isJumpingHash;
     bool isJumpAnimating = false;
 
+    // Push Variables
+    float runPushPower = 4.0f;
+    float walkPushPower = 2.0f;
+
 
     float walkMultiplier = 3.5f;
     float runMultiplier = 8.5f;
@@ -226,5 +230,41 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     {
         // disable character controls action map
         playerInput.CharacterControls.Disable();
+    }
+
+    // Push Logic
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody body = hit.collider.attachedRigidbody;
+        float pushPower;
+
+        if (isRunPressed)
+        {
+            pushPower = runPushPower;
+        } else {
+            pushPower = walkPushPower;
+        }
+
+        // no rigidbody
+        if (body == null || body.isKinematic)
+        {
+            return;
+        }
+
+        // We dont want to push objects below us
+        if (hit.moveDirection.y < -0.3)
+        {
+            return;
+        }
+
+        // Calculate push direction from move direction,
+        // we only push objects to the sides never up and down
+        Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+        // If you know how fast your character is trying to move,
+        // then you can also multiply the push velocity by that.
+
+        // Apply the push
+        body.velocity = pushDir * pushPower;
     }
 }
