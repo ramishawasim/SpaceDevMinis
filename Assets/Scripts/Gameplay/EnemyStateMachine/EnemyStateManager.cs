@@ -9,8 +9,11 @@ public class EnemyStateManager : MonoBehaviour
     EnemyBaseState currentState;
     public EnemyPatrolState PatrolState = new EnemyPatrolState();
     public EnemyChaseState ChaseState = new EnemyChaseState();
+    public Animator enemyAnimator;
 
-    [SerializeField]
+    public int isWalkingHash;
+    public int isRunningHash;
+
     public Transform playerPositionTransform;
 
     public NavMeshAgent navMeshAgent;
@@ -24,6 +27,9 @@ public class EnemyStateManager : MonoBehaviour
     public float patrolAngleSpeed = 250f;
     public float chaseAngleSpeed = 500;
 
+    public float chaseAcceleration = 20f;
+    public float patrolAcceleration = 5f;
+
     // Patrol Parameters
 
     public Vector3 walkPoint;
@@ -34,7 +40,7 @@ public class EnemyStateManager : MonoBehaviour
     public float pauseTimeMax = 2f;
     private float pauseTime;
 
-    // "Update()"
+    // Fake "Update"
 
     public float sightRange;
     public bool playerInSightRange;
@@ -43,6 +49,12 @@ public class EnemyStateManager : MonoBehaviour
 
     void Start()
     {
+        enemyAnimator = GetComponent<Animator>(); 
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isRunningHash = Animator.StringToHash("isRunning");
+
+        GameObject player = GameObject.Find("Player");
+        playerPositionTransform = player.transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
         walkPoint = transform.position;
