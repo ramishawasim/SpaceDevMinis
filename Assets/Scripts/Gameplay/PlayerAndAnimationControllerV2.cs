@@ -43,6 +43,12 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     float rotationSpeed = 7.5f;
     float runningRotationSpeed = 12.5f;
 
+    // Death stuff
+    public GameObject playerObject;
+    public Vector3 respawnLocation;
+    public bool isDead = false;
+    int isDeadHash;
+
     private Transform cameraMainTransform;
 
     private void Awake()
@@ -52,9 +58,13 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
+        playerObject = this.gameObject;
+        respawnLocation = playerObject.transform.position;
+
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
+        isDeadHash = Animator.StringToHash("isDead");
 
         // set player input callbacks
         playerInput.CharacterControls.Move.started += onMovementInput;
@@ -267,4 +277,24 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         // Apply the push
         body.velocity = pushDir * pushPower;
     }
+
+    public void onDeath()
+    {
+        // Death needs delay
+        StartCoroutine(deathCoroutine());
+    }
+
+    IEnumerator deathCoroutine()
+    {
+        // death logic
+        animator.SetBool(isDeadHash, true);
+        isDead = true;
+        characterController.enabled = false;
+        yield return new WaitForSeconds(5);
+        animator.SetBool(isDeadHash, false);
+        isDead = false;
+        playerObject.transform.position = respawnLocation;
+        characterController.enabled = true;
+    }
+
 }

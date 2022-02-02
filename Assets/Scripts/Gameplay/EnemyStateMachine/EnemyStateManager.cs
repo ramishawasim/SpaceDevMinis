@@ -47,13 +47,16 @@ public class EnemyStateManager : MonoBehaviour
     public float stateUpdateTime = 0.2f;
     public NavMeshPath path;
 
+    // player object
+    GameObject player;
+
     void Start()
     {
         enemyAnimator = GetComponent<Animator>(); 
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
 
-        GameObject player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
         playerPositionTransform = player.transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
@@ -112,6 +115,7 @@ public class EnemyStateManager : MonoBehaviour
         if (hit.tag == "Player")
         {
             Debug.Log("KILL");
+            player.GetComponent<PlayerAndAnimationControllerV2>().onDeath();
         }
     }
 
