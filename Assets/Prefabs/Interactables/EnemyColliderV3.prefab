@@ -93,7 +93,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.55
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!195 &3683028792603039160
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 0}
   isWalkingHash: 0
   isRunningHash: 0
+  isAttackingHash: 0
   playerPositionTransform: {fileID: 0}
   navMeshAgent: {fileID: 0}
   whatIsPlayer:
