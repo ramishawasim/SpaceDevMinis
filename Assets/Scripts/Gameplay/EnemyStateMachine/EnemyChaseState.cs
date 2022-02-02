@@ -7,6 +7,9 @@ public class EnemyChaseState : EnemyBaseState
     {
         enemy.navMeshAgent.speed = enemy.chaseSpeed;
         enemy.navMeshAgent.angularSpeed = enemy.chaseAngleSpeed;
+        enemy.navMeshAgent.acceleration = enemy.chaseAcceleration;
+
+        enemy.enemyAnimator.SetBool(enemy.isRunningHash, true);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -19,8 +22,13 @@ public class EnemyChaseState : EnemyBaseState
         }
         else
         {
+            enemy.enemyAnimator.SetBool(enemy.isRunningHash, false);
             enemy.SwitchState(enemy.PatrolState);
         }
-        if (!enemy.playerInSightRange) enemy.SwitchState(enemy.PatrolState);
+        if (!enemy.playerInSightRange)
+        {
+            enemy.enemyAnimator.SetBool(enemy.isRunningHash, false);
+            enemy.SwitchState(enemy.PatrolState);
+        }
     }
 }
