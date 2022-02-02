@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 //Player Reset functionality
 public class PlayerReset : MonoBehaviour
 {
-    public float threshold = -50f;
+    public float threshold = -10f;
 
     void Update()
     {
@@ -19,6 +19,6 @@ public class PlayerReset : MonoBehaviour
 
     void reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        this.GetComponent<PlayerAndAnimationControllerV2>().onDeath();
     }
 }
