@@ -49,6 +49,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     public bool isDead = false;
     int isDeadHash;
 
+    float falloffThreshold = -10f;
+
     private Transform cameraMainTransform;
 
     private void Awake()
@@ -228,6 +230,11 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
         handleGravity();
         handleJump();
+
+        if (transform.position.y < falloffThreshold)
+        {
+            onDeath();
+        }
     }
 
     void OnEnable()
@@ -281,7 +288,10 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     public void onDeath()
     {
         // Death needs delay
-        StartCoroutine(deathCoroutine());
+        if (!isDead) 
+        {
+            StartCoroutine(deathCoroutine());
+        }
     }
 
     IEnumerator deathCoroutine()
@@ -296,5 +306,4 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         playerObject.transform.position = respawnLocation;
         characterController.enabled = true;
     }
-
 }
