@@ -27,10 +27,11 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     bool isJumpPressed = false;
     float initialJumpVelocity;
     float maxJumpHeight = 7.0f;
-    float maxJumpTime = 2.0f;
+    float maxJumpTime = 2.25f;
     bool isJumping = false;
     int isJumpingHash;
     bool isJumpAnimating = false;
+    float fallMultiplier = 2.5f;
 
     // Push Variables
     float runPushPower = 4.0f;
@@ -98,6 +99,15 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
             isJumping = true;
             currentMovement.y = initialJumpVelocity;
             appliedMovement.y = initialJumpVelocity;
+            if (isRunPressed)
+            {
+                appliedMovement.x = currentRunMovement.x;
+                appliedMovement.z = currentRunMovement.z;
+            } else
+            {
+                appliedMovement.x = currentMovement.x;
+                appliedMovement.z = currentMovement.z;
+            }
         } else if (!isJumpPressed && isJumping && characterController.isGrounded) {
             isJumping = false;
         }
@@ -136,7 +146,6 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     void handleGravity()
     {
         bool isFalling = currentMovement.y <= 0.0f || !isJumpPressed;
-        float fallMultiplier = 2.0f;
         
         if (characterController.isGrounded)
         {
@@ -218,7 +227,11 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         handleAnimation();
 
         // Final movement
-        if (isRunPressed) {
+        if (isJumpAnimating)
+        {
+            appliedMovement.x = appliedMovement.x + (currentMovement.x * Time.deltaTime);
+            appliedMovement.z = appliedMovement.z + (currentMovement.z * Time.deltaTime);
+        } else if (isRunPressed) {
             appliedMovement.x = currentRunMovement.x;
             appliedMovement.z = currentRunMovement.z;
         } else {
