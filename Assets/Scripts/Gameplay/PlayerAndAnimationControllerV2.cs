@@ -342,4 +342,9 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         playerObject.transform.position = respawnLocation;
         characterController.enabled = true;
     }
+
+    public void setRespawnLocation(Vector3 fireLocation)
+    {
+        respawnLocation = fireLocation;
+    }
 }
