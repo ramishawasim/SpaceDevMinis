@@ -13,6 +13,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     // variables to store optimized setter/getter parameter IDs
     int isWalkingHash;
     int isRunningHash;
+    bool isWalking;
+    bool isRunning;
 
     // variables to store player input values
     Vector2 currentMovementInput;
@@ -27,11 +29,14 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     bool isJumpPressed = false;
     float initialJumpVelocity;
     float maxJumpHeight = 7.0f;
-    float maxJumpTime = 2.25f;
+    float maxJumpTime = 2.0f;
     bool isJumping = false;
     int isJumpingHash;
     bool isJumpAnimating = false;
-    float fallMultiplier = 2.5f;
+    float fallMultiplier = 2.0f;
+    bool wasRunningWhenJumped = false;
+    Vector3 movementWhenJumped;
+    float movementWhenJumpedDamp = 5.0f;
 
     // Push Variables
     float runPushPower = 4.0f;
@@ -51,6 +56,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     int isDeadHash;
 
     float falloffThreshold = -10f;
+
+    bool isSneaking = true;
 
     private Transform cameraMainTransform;
 
@@ -99,14 +106,14 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
             isJumping = true;
             currentMovement.y = initialJumpVelocity;
             appliedMovement.y = initialJumpVelocity;
+            movementWhenJumped.x = currentMovement.x;
+            movementWhenJumped.z = currentMovement.z;
             if (isRunPressed)
             {
-                appliedMovement.x = currentRunMovement.x;
-                appliedMovement.z = currentRunMovement.z;
+                wasRunningWhenJumped = true;
             } else
             {
-                appliedMovement.x = currentMovement.x;
-                appliedMovement.z = currentMovement.z;
+                wasRunningWhenJumped = false;
             }
         } else if (!isJumpPressed && isJumping && characterController.isGrounded) {
             isJumping = false;
@@ -193,8 +200,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     void handleAnimation()
     {
         // get parameter values from animator
-        bool isWalking = animator.GetBool(isWalkingHash);
-        bool isRunning = animator.GetBool(isRunningHash);
+        isWalking = animator.GetBool(isWalkingHash);
+        isRunning = animator.GetBool(isRunningHash);
 
         // start walking if movement is pressed and not already walking
         if (isMovementPressed && !isWalking)
@@ -227,10 +234,13 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         handleAnimation();
 
         // Final movement
-        if (isJumpAnimating)
+        if (isJumpAnimating && wasRunningWhenJumped)
         {
-            appliedMovement.x = appliedMovement.x + (currentMovement.x * Time.deltaTime);
-            appliedMovement.z = appliedMovement.z + (currentMovement.z * Time.deltaTime);
+            appliedMovement.x = (movementWhenJumped.x / movementWhenJumpedDamp) + currentRunMovement.x;
+            appliedMovement.z = (movementWhenJumped.z / movementWhenJumpedDamp) + currentRunMovement.z;
+        } else if (isJumpAnimating) {
+            appliedMovement.x = (movementWhenJumped.x / movementWhenJumpedDamp) + currentMovement.x;
+            appliedMovement.z = (movementWhenJumped.z / movementWhenJumpedDamp) + currentMovement.z;
         } else if (isRunPressed) {
             appliedMovement.x = currentRunMovement.x;
             appliedMovement.z = currentRunMovement.z;
@@ -243,6 +253,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
         handleGravity();
         handleJump();
+
+        checkSneak();
 
         if (transform.position.y < falloffThreshold)
         {
@@ -260,6 +272,17 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     {
         // disable character controls action map
         playerInput.CharacterControls.Disable();
+    }
+
+    void checkSneak()
+    {
+        if (isRunning || isJumpAnimating)
+        {
+            isSneaking = false;
+        } else
+        {
+            isSneaking = true;
+        }
     }
 
     // Push Logic
