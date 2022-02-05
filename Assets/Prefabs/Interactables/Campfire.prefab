@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2153579358583986688}
   m_Layer: 0
   m_Name: Campfire
-  m_TagString: Untagged
+  m_TagString: Campfire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8382b97de92fe6348896a0fcfa9fb7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  campfires: []
+  isCurrentRespawn: 0
 --- !u!1 &685653160866101917
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +339,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7490196, g: 0.13725491, b: 0, a: 1}
-  m_Intensity: 3
+  m_Intensity: 0
   m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

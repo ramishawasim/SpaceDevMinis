@@ -9,6 +9,7 @@ TagManager:
   - Collectable2
   - TargetPlatform
   - PushCollider
+  - Campfire
   layers:
   - Default
   - TransparentFX
