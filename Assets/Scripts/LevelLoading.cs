@@ -26,14 +26,19 @@ public class LevelLoading : MonoBehaviour
                 }
             }
         }
+
+        LoadScene();
         
     }
 
     // Update is called once per frame
+    
+    /*
     void Update()
     {
         TriggerCheck();
     }
+    */
 
     private void TriggerCheck()
     {
@@ -66,6 +71,8 @@ public class LevelLoading : MonoBehaviour
         }
     }
 
+
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -73,6 +80,7 @@ public class LevelLoading : MonoBehaviour
             shouldLoad = true;
         }
     }
+    */
     /*
     private void OnTriggerExit(Collider other)
     {
