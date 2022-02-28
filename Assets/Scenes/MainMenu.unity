@@ -426,7 +426,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 331.65, y: -175}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618571031
 MonoBehaviour:
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit Game
+  m_text: ' Quit Game'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ec26f6e23d8691b42bd9641ee3aaf338, type: 2}
   m_sharedMaterial: {fileID: -1736602122683984502, guid: ec26f6e23d8691b42bd9641ee3aaf338, type: 2}
@@ -1148,7 +1148,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 331.65, y: -300}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278929470
 MonoBehaviour:
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Game
+  m_text: ' Start Game'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ec26f6e23d8691b42bd9641ee3aaf338, type: 2}
   m_sharedMaterial: {fileID: -1736602122683984502, guid: ec26f6e23d8691b42bd9641ee3aaf338, type: 2}
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rules
+  m_text: ' Rules'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ec26f6e23d8691b42bd9641ee3aaf338, type: 2}
   m_sharedMaterial: {fileID: -1736602122683984502, guid: ec26f6e23d8691b42bd9641ee3aaf338, type: 2}
@@ -2132,7 +2132,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 331.65, y: -50}
-  m_SizeDelta: {x: 400, y: 100}
+  m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2068130889
 MonoBehaviour:
