@@ -140,13 +140,13 @@ Material:
     - Color_56c20f8344224f56a95fe900f6fdc2e4: {r: 8, g: 0, b: 0, a: 1}
     - Color_5bece0e407604778b65823297ca5270c: {r: 2.9960785, g: 0.8, b: 0, a: 0}
     - Color_975a1f7748bd44b7b8da5f17fbfa245b: {r: 32, g: 3.137255, b: 0, a: 1}
-    - Color_b20387b52a6b4741b4eaa91f7babf159: {r: 11.984314, g: 0.1254902, b: 0.1254902, a: 1}
+    - Color_b20387b52a6b4741b4eaa91f7babf159: {r: 11.984314, g: 0, b: 0.12108023, a: 1}
     - Color_f47bd2317cca460ea0abbd47b9cafd24: {r: 2.9960785, g: 0.26666668, b: 0, a: 0}
     - Vector2_587d9671e38a4529a3d0674faf694016: {r: -0.01, g: 0, b: 0, a: 0}
     - Vector2_6ce56c3931284ccc8c3f901a7e13354b: {r: 0, g: 0, b: 0, a: 0}
-    - Vector2_ae8abd11441a4672a6faca6110a0cefa: {r: 0.05, g: 20, b: 0, a: 0}
-    - Vector2_e1c59a8313a1425faf43384709006c61: {r: 0.01, g: 0, b: 0, a: 0}
-    - Vector2_f82fae91a6cf4c1b8617bc330de982b0: {r: 0.1, g: 0.01, b: 0.1, a: 0}
+    - Vector2_ae8abd11441a4672a6faca6110a0cefa: {r: 0.033, g: 6.66, b: 0, a: 0}
+    - Vector2_e1c59a8313a1425faf43384709006c61: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_f82fae91a6cf4c1b8617bc330de982b0: {r: 0, g: 0.1, b: 0.1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
