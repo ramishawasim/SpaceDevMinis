@@ -81,7 +81,7 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         playerInput.CharacterControls.Move.canceled += onMovementInput;
         playerInput.CharacterControls.Move.performed += onMovementInput;
         playerInput.CharacterControls.Run.started += onRun;
-        playerInput.CharacterControls.Run.canceled += onRun;
+        // playerInput.CharacterControls.Run.canceled += onRun;
         playerInput.CharacterControls.Jump.started += onJump;
         playerInput.CharacterControls.Jump.canceled += onJump;
 
@@ -148,7 +148,12 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
     void onRun(InputAction.CallbackContext context)
     {
-        isRunPressed = context.ReadValueAsButton();
+        if (!isRunPressed)
+        {
+            isRunPressed = context.ReadValueAsButton();
+        } else {
+            isRunPressed = false;
+        }
     }
     void handleGravity()
     {
