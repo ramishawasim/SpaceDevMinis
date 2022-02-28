@@ -13,6 +13,7 @@ public class EnemyStateManager : MonoBehaviour
 
     public int isWalkingHash;
     public int isRunningHash;
+    public int isAttackingHash;
 
     public Transform playerPositionTransform;
 
@@ -47,13 +48,17 @@ public class EnemyStateManager : MonoBehaviour
     public float stateUpdateTime = 0.2f;
     public NavMeshPath path;
 
+    // player object
+    GameObject player;
+
     void Start()
     {
         enemyAnimator = GetComponent<Animator>(); 
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
+        isAttackingHash = Animator.StringToHash("isAttacking");
 
-        GameObject player = GameObject.Find("Player");
+        player = GameObject.Find("Player");
         playerPositionTransform = player.transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
@@ -111,8 +116,19 @@ public class EnemyStateManager : MonoBehaviour
     {
         if (hit.tag == "Player")
         {
-            Debug.Log("KILL");
+            StartCoroutine(killCoroutine());
         }
+    }
+
+    IEnumerator killCoroutine()
+    {
+        Debug.Log("KILL");
+        // enemyAnimator.SetBool(isAttackingHash, true);
+        // navMeshAgent.isStopped = true;
+        player.GetComponent<PlayerAndAnimationControllerV2>().onDeath();
+        yield return new WaitForSeconds(2);
+        // enemyAnimator.SetBool(isAttackingHash, false);
+        // navMeshAgent.isStopped = false;
     }
 
     private void OnDrawGizmosSelected()

@@ -13,6 +13,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     // variables to store optimized setter/getter parameter IDs
     int isWalkingHash;
     int isRunningHash;
+    bool isWalking;
+    bool isRunning;
 
     // variables to store player input values
     Vector2 currentMovementInput;
@@ -31,6 +33,10 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     bool isJumping = false;
     int isJumpingHash;
     bool isJumpAnimating = false;
+    float fallMultiplier = 2.0f;
+    bool wasRunningWhenJumped = false;
+    Vector3 movementWhenJumped;
+    float movementWhenJumpedDamp = 5.0f;
 
     // Push Variables
     float runPushPower = 4.0f;
@@ -43,6 +49,16 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     float rotationSpeed = 7.5f;
     float runningRotationSpeed = 12.5f;
 
+    // Death stuff
+    public GameObject playerObject;
+    public Vector3 respawnLocation;
+    public bool isDead = false;
+    int isDeadHash;
+
+    float falloffThreshold = -10f;
+
+    bool isSneaking = true;
+
     private Transform cameraMainTransform;
 
     private void Awake()
@@ -52,9 +68,13 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
+        playerObject = this.gameObject;
+        respawnLocation = playerObject.transform.position;
+
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
         isJumpingHash = Animator.StringToHash("isJumping");
+        isDeadHash = Animator.StringToHash("isDead");
 
         // set player input callbacks
         playerInput.CharacterControls.Move.started += onMovementInput;
@@ -86,6 +106,15 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
             isJumping = true;
             currentMovement.y = initialJumpVelocity;
             appliedMovement.y = initialJumpVelocity;
+            movementWhenJumped.x = currentMovement.x;
+            movementWhenJumped.z = currentMovement.z;
+            if (isRunPressed)
+            {
+                wasRunningWhenJumped = true;
+            } else
+            {
+                wasRunningWhenJumped = false;
+            }
         } else if (!isJumpPressed && isJumping && characterController.isGrounded) {
             isJumping = false;
         }
@@ -124,7 +153,6 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     void handleGravity()
     {
         bool isFalling = currentMovement.y <= 0.0f || !isJumpPressed;
-        float fallMultiplier = 2.0f;
         
         if (characterController.isGrounded)
         {
@@ -172,8 +200,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     void handleAnimation()
     {
         // get parameter values from animator
-        bool isWalking = animator.GetBool(isWalkingHash);
-        bool isRunning = animator.GetBool(isRunningHash);
+        isWalking = animator.GetBool(isWalkingHash);
+        isRunning = animator.GetBool(isRunningHash);
 
         // start walking if movement is pressed and not already walking
         if (isMovementPressed && !isWalking)
@@ -206,7 +234,14 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         handleAnimation();
 
         // Final movement
-        if (isRunPressed) {
+        if (isJumpAnimating && wasRunningWhenJumped)
+        {
+            appliedMovement.x = (movementWhenJumped.x / movementWhenJumpedDamp) + currentRunMovement.x;
+            appliedMovement.z = (movementWhenJumped.z / movementWhenJumpedDamp) + currentRunMovement.z;
+        } else if (isJumpAnimating) {
+            appliedMovement.x = (movementWhenJumped.x / movementWhenJumpedDamp) + currentMovement.x;
+            appliedMovement.z = (movementWhenJumped.z / movementWhenJumpedDamp) + currentMovement.z;
+        } else if (isRunPressed) {
             appliedMovement.x = currentRunMovement.x;
             appliedMovement.z = currentRunMovement.z;
         } else {
@@ -218,6 +253,13 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
         handleGravity();
         handleJump();
+
+        checkSneak();
+
+        if (transform.position.y < falloffThreshold)
+        {
+            onDeath();
+        }
     }
 
     void OnEnable()
@@ -230,6 +272,17 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     {
         // disable character controls action map
         playerInput.CharacterControls.Disable();
+    }
+
+    void checkSneak()
+    {
+        if (isRunning || isJumpAnimating)
+        {
+            isSneaking = false;
+        } else
+        {
+            isSneaking = true;
+        }
     }
 
     // Push Logic
@@ -266,5 +319,32 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
         // Apply the push
         body.velocity = pushDir * pushPower;
+    }
+
+    public void onDeath()
+    {
+        // Death needs delay
+        if (!isDead) 
+        {
+            StartCoroutine(deathCoroutine());
+        }
+    }
+
+    IEnumerator deathCoroutine()
+    {
+        // death logic
+        animator.SetBool(isDeadHash, true);
+        isDead = true;
+        characterController.enabled = false;
+        yield return new WaitForSeconds(5);
+        animator.SetBool(isDeadHash, false);
+        isDead = false;
+        playerObject.transform.position = respawnLocation;
+        characterController.enabled = true;
+    }
+
+    public void setRespawnLocation(Vector3 fireLocation)
+    {
+        respawnLocation = fireLocation;
     }
 }
