@@ -270,6 +270,14 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         {
             onDeath();
         }
+
+        if (characterController.velocity.y > 0f)
+        {
+            Physics.IgnoreLayerCollision( 3, 7, true);
+        } else
+        {
+            Physics.IgnoreLayerCollision(3, 7, false);
+        }
     }
 
     void OnEnable()
