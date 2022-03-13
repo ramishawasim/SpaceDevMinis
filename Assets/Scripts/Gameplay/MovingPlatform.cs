@@ -7,21 +7,21 @@ public class MovingPlatform : MonoBehaviour
     public List<Transform> waypoints;
     public float moveSpeed;
     public int target;
-    public Vector3 publicPlatformVelocity;
+    public Vector3 publicPlatformVectorDirection;
 
 
     void Update()
     {
         //recieve data
 
+        publicPlatformVectorDirection = transform.position - Vector3.MoveTowards(transform.position, waypoints[target].position, moveSpeed);
         transform.position = Vector3.MoveTowards(transform.position, waypoints[target].position, moveSpeed * Time.deltaTime);
-        publicPlatformVelocity = transform.position - Vector3.MoveTowards(transform.position, waypoints[target].position, moveSpeed);
     }
 
     private void FixedUpdate()
     {
         //use data
-        if(transform.position == waypoints[target].position)
+        if (transform.position == waypoints[target].position)
         {
             if (target == waypoints.Count - 1)
             {
