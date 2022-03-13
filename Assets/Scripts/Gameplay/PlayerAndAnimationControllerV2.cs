@@ -302,6 +302,7 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         {
             onPlatform = true;
             externalMovement = hit.collider.gameObject.GetComponent<MovingPlatform>().publicPlatformVectorDirection;
+            externalMovement.y = externalMovement.y * 1.75f;
         } else
         {
             Vector3 none = new Vector3();
