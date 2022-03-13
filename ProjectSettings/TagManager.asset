@@ -10,6 +10,7 @@ TagManager:
   - TargetPlatform
   - PushCollider
   - Campfire
+  - Platform
   layers:
   - Default
   - TransparentFX
