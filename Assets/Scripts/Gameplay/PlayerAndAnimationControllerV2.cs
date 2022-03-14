@@ -43,7 +43,7 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     float walkPushPower = 2.0f;
 
 
-    float walkMultiplier = 3.5f;
+    float walkMultiplier = 4.25f;
     float runMultiplier = 8.5f;
     float gravity = -9.81f;
     float rotationSpeed = 7.5f;
