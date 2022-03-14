@@ -61,6 +61,11 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
     private Transform cameraMainTransform;
 
+    // Platform Stuff
+
+    bool onPlatform;
+    Vector3 externalMovement;
+
     private void Awake()
     {
         // initial setting of reference variables
@@ -254,7 +259,7 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
             appliedMovement.z = currentMovement.z;
         }
 
-        characterController.Move(appliedMovement * Time.deltaTime);
+        characterController.Move((appliedMovement - externalMovement) * Time.deltaTime);
 
         handleGravity();
         handleJump();
@@ -264,6 +269,14 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         if (transform.position.y < falloffThreshold)
         {
             onDeath();
+        }
+
+        if (characterController.velocity.y > 0f)
+        {
+            Physics.IgnoreLayerCollision( 3, 7, true);
+        } else
+        {
+            Physics.IgnoreLayerCollision(3, 7, false);
         }
     }
 
@@ -290,9 +303,22 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         }
     }
 
-    // Push Logic
+    // Push Logic and Platforms
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        if (hit.collider.tag == "Platform")
+        {
+            onPlatform = true;
+            externalMovement = hit.collider.gameObject.GetComponent<MovingPlatform>().publicPlatformVectorDirection;
+            externalMovement.y = externalMovement.y * 1.75f;
+        } else
+        {
+            Vector3 none = new Vector3();
+            onPlatform = false;
+            externalMovement = none;
+        }
+
+
         Rigidbody body = hit.collider.attachedRigidbody;
         float pushPower;
 
