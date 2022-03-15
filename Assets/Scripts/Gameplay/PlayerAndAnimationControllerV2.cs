@@ -28,8 +28,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     // Jumping stuff
     bool isJumpPressed = false;
     float initialJumpVelocity;
-    float maxJumpHeight = 7.0f;
-    float maxJumpTime = 2.0f;
+    float maxJumpHeight = 14.0f;
+    float maxJumpTime = 4.0f;
     bool isJumping = false;
     int isJumpingHash;
     bool isJumpAnimating = false;
