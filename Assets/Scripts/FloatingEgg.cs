@@ -17,7 +17,15 @@ public class FloatingEgg : MonoBehaviour
     void Start()
     {
         posOffset = transform.position;
-        extraOffset = (transform.position.x - transform.position.z) / 4f;
+
+        // check if even, then divide by 4f so they kinda sway together
+        if ((transform.position.z -0.5f) %2f == 0)
+        {
+            extraOffset = (transform.position.x + transform.position.z) / 4f;
+        } else
+        {
+            extraOffset = (transform.position.x - transform.position.z) / 4f;
+        }
     }
 
     // Update is called once per frame
