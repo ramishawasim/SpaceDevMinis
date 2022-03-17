@@ -11,8 +11,7 @@ public class LevelLoading : MonoBehaviour
     private bool isLoaded;
     private bool shouldLoad;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // if scene is loaded do not open second time
         if (SceneManager.sceneCount > 0)
