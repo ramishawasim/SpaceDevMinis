@@ -367,7 +367,7 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         animator.SetBool(isDeadHash, true);
         isDead = true;
         characterController.enabled = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         animator.SetBool(isDeadHash, false);
         isDead = false;
         playerObject.transform.position = respawnLocation;
