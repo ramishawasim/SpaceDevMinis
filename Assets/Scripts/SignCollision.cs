@@ -5,25 +5,33 @@ using UnityEngine;
 public class SignCollision : MonoBehaviour
 {
 
+    // You need to set the Dialogue Box in the editor. The interact prompt is something that needs to be found in the scene. If it's a child of a prefab there's a bit more that needs to be done.
     public GameObject DialogueBox;
     public GameObject InteractPrompt;
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void Start()
     {
-        if (collision.gameObject.tag == "Player")
+        InteractPrompt = GameObject.Find("InteractPrompt");
+    }
+
+
+
+    private void OnTriggerEnter(Collider hit)
+    {
+        if (hit.tag == "Player")
         {
-            InteractPrompt.SetActive(true);
             Debug.Log("CAN INTERACT WITH SIGN");
+            //InteractPrompt.SetActive(true);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider hit)
     {
-        if (collision.gameObject.tag == "Player")
+        if (hit.tag == "Player")
         {
-            InteractPrompt.SetActive(false);
             Debug.Log("CANNOT INTERACT WITH SIGN");
+            //InteractPrompt.SetActive(false);
         }
     }
 
