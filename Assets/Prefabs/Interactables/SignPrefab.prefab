@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced774f7262bdc744a7b021fe47b8be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationMult: 100
+  rotationAmount: 0.075
+  frequency: 1
+  tiltAroundX: -15
 --- !u!1 &3103310745229413553
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +331,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1795b6e325e4d9547a66e1a11a21466e, type: 2}
+  - {fileID: 2100000, guid: 9a35a87cfd025464d98f03d768c2a7c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
