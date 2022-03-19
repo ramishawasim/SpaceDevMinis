@@ -11,6 +11,7 @@ public class CollectableOnTriggerEnter : MonoBehaviour
 
     public GameObject inventory;
     private Vector3 startingPosition;
+    private GameObject renderedEgg;
 
     private void Awake()
     {
@@ -35,6 +36,7 @@ public class CollectableOnTriggerEnter : MonoBehaviour
         startingPosition = gameObject.transform.position;
 
         inventory = GameObject.Find("Inventory");
+        renderedEgg = gameObject.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerEnter(Collider hit)
@@ -63,7 +65,8 @@ public class CollectableOnTriggerEnter : MonoBehaviour
             {
                 Debug.Log("50 GOLD COLLECTABLES");
             }
-            Destroy(gameObject);
+            Destroy(renderedEgg);
+            gameObject.GetComponent<SphereCollider>().enabled = false;
             UpdateGUI();
         }
     }
