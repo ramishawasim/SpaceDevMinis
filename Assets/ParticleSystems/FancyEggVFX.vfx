@@ -24,6 +24,16 @@ MonoBehaviour:
     contents: Covers the range every "Period" Seconds
     theme: Classic
     textSize: Small
+  - title: Can combine total time with sine wave to have proper wave
+    position:
+      serializedVersion: 2
+      x: 576
+      y: 409
+      width: 445
+      height: 100
+    contents: type something here
+    theme: Classic
+    textSize: Small
   categories: []
   uiBounds:
     serializedVersion: 2
