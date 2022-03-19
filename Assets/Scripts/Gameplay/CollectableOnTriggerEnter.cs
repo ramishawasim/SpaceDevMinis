@@ -7,9 +7,10 @@ public class CollectableOnTriggerEnter : MonoBehaviour
 {
     private Text collectableCounter;
     public int collectableNumber;
-    private int collectable = 0;
+    private int collectable;
 
-    private GameObject blockade1;
+    public GameObject inventory;
+    private Vector3 startingPosition;
 
     private void Awake()
     {
@@ -25,18 +26,42 @@ public class CollectableOnTriggerEnter : MonoBehaviour
             collectableCounter = counterRef.GetComponent<Text>();
         }
 
-        blockade1 = GameObject.Find("Blockade1");
+        if (collectableNumber == 3)
+        {
+            GameObject counterRef = GameObject.Find("Collectable3Counter");
+            collectableCounter = counterRef.GetComponent<Text>();
+        }
+
+        startingPosition = gameObject.transform.position;
+
+        inventory = GameObject.Find("Inventory");
     }
 
     private void OnTriggerEnter(Collider hit)
     {
+        // This is the hit event
         if (hit.tag == "Player")
         {
+
+            // Update player inventory
+            if (collectableNumber == 1)
+            {
+                inventory.GetComponent<Inventory>().collectable1Counter++;
+            } else if (collectableNumber == 2)
+            {
+                inventory.GetComponent<Inventory>().collectable2Counter++;
+            } else if (collectableNumber == 3) {
+                inventory.GetComponent<Inventory>().collectable3Counter++;
+            }
+
+            // The script doesn't know the collectable count without this
             collectable = int.Parse (collectableCounter.text);
             collectable++;
-            if (collectable == 50)
+
+            // Collectable Events
+            if (inventory.GetComponent<Inventory>().collectable1Counter == 50)
             {
-                Destroy(blockade1);
+                Debug.Log("50 GOLD COLLECTABLES");
             }
             Destroy(gameObject);
             UpdateGUI();
