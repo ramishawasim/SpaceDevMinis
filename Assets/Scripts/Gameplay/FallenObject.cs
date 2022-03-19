@@ -21,6 +21,8 @@ public class FallenObject : MonoBehaviour
         {
             transform.position = respawnLocation;
             gameObject.GetComponent<Rigidbody>().velocity = noSpeed;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gameObject.GetComponentInParent<FloatingBall>().isFloating = true;
         }
     }
 }
