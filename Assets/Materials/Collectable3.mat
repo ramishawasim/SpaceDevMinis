@@ -8,14 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Collectable3
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 3662293ba2ab99d41874a5e4f1ce28f6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -77,6 +76,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_4ef086b0a7fe44e5a0a4b6f9a15e71ec: 2.5
+    - Vector1_7aba4c3376334a1aa59a833ef9111b11: 1
+    - Vector1_7fe6d7559bfe42058214f4bfedb64617: 1
+    - Vector1_9bb26ca2a1d94efc87b20f7f81139c47: 0.15
+    - Vector1_a67bc853dd4f43f6bfcfc7d27824bee8: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -104,9 +108,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 0}
+    - Color_2d6feea68b334a7f964887371dd8f3c1: {r: 0.9498925, g: 0.4866028, b: 3.820733, a: 0}
+    - Vector2_3f78906c8a0d4773b248c7ae3acdf0af: {r: 1, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0.54958016, g: 0.36320752, b: 1, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 2.662407, b: 32, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3540459631307145539
