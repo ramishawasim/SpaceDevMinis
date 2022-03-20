@@ -11,6 +11,7 @@ public class Platform1OnTriggerEnter : MonoBehaviour
     private MeshRenderer InnerBallMeshRenderer;
     private InnerMarbleMadness SpinningInnerBall;
     private VisualEffect TrailVFX;
+    private GameObject killTruncatedIcosahedron;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Platform1OnTriggerEnter : MonoBehaviour
         InnerBallMeshRenderer = pushCollider.transform.GetChild(1).gameObject.GetComponent<MeshRenderer>();
         SpinningInnerBall = pushCollider.transform.GetChild(1).gameObject.GetComponent<InnerMarbleMadness>();
         TrailVFX = pushCollider.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.GetComponent<VisualEffect>();
+        killTruncatedIcosahedron = pushCollider.transform.GetChild(2).gameObject;
     }
 
 
@@ -37,7 +39,7 @@ public class Platform1OnTriggerEnter : MonoBehaviour
             InnerBallMeshRenderer.enabled = false;
             SpinningInnerBall.enabled = false;
             TrailVFX.Stop();
-            
+            killTruncatedIcosahedron.SetActive(true);            
         }
     }
 }
