@@ -16,7 +16,6 @@ public class CollectableOnTriggerEnter : MonoBehaviour
     private GameObject renderedLight;
     private GameObject particleSystem1;
     private GameObject particleSystem2;
-    private GameObject particleSystem3;
 
     private void Awake()
     {
@@ -45,7 +44,6 @@ public class CollectableOnTriggerEnter : MonoBehaviour
         renderedLight = renderedEgg.transform.GetChild(0).gameObject;
         particleSystem1 = renderedEgg.transform.GetChild(1).gameObject;
         particleSystem2 = renderedEgg.transform.GetChild(2).gameObject;
-        particleSystem3 = renderedEgg.transform.GetChild(3).gameObject;
     }
 
     private void OnTriggerEnter(Collider hit)
