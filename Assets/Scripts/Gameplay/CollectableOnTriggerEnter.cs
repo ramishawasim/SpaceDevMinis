@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class CollectableOnTriggerEnter : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class CollectableOnTriggerEnter : MonoBehaviour
     public GameObject inventory;
     private Vector3 startingPosition;
     private GameObject renderedEgg;
+    private GameObject renderedLight;
+    private GameObject particleSystem1;
+    private GameObject particleSystem2;
 
     private void Awake()
     {
@@ -37,6 +41,9 @@ public class CollectableOnTriggerEnter : MonoBehaviour
 
         inventory = GameObject.Find("Inventory");
         renderedEgg = gameObject.transform.GetChild(0).gameObject;
+        renderedLight = renderedEgg.transform.GetChild(0).gameObject;
+        particleSystem1 = renderedEgg.transform.GetChild(1).gameObject;
+        particleSystem2 = renderedEgg.transform.GetChild(2).gameObject;
     }
 
     private void OnTriggerEnter(Collider hit)
@@ -65,8 +72,15 @@ public class CollectableOnTriggerEnter : MonoBehaviour
             {
                 Debug.Log("50 GOLD COLLECTABLES");
             }
-            Destroy(renderedEgg);
+
+            // Disabling/Enabling stuff
             gameObject.GetComponent<SphereCollider>().enabled = false;
+            renderedEgg.GetComponent<MeshRenderer>().enabled = false;
+            renderedLight.SetActive(false);
+            particleSystem1.GetComponent<VisualEffect>().Stop();
+            particleSystem2.SetActive(true);
+
+
             UpdateGUI();
         }
     }
