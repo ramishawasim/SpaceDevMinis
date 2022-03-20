@@ -32,7 +32,7 @@ public class Platform1OnTriggerEnter : MonoBehaviour
             Debug.Log("Platform Success");
 
             pushCollider.GetComponent<Rigidbody>().isKinematic = false;
-            pushCollider.GetComponent<SphereCollider>().enabled = false;
+            //pushCollider.GetComponent<SphereCollider>().enabled = false;
 
             BallMeshRenderer.enabled = false;
             PointLight.SetActive(false);
