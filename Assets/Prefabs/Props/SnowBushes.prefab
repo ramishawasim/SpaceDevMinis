@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: -6261728104429615372, guid: 5142f27923cc741399b4ebb5b53039cc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0901020e463c7d44585d2050c82fe91b, type: 2}
+      objectReference: {fileID: 2100000, guid: 5378ba441435a8a49b2a7fc636878cd3, type: 2}
     - target: {fileID: 919132149155446097, guid: 5142f27923cc741399b4ebb5b53039cc, type: 3}
       propertyPath: m_Name
       value: bushes
