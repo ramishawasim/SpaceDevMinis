@@ -103,7 +103,7 @@ PrefabInstance:
     - target: {fileID: -2506261474972411179, guid: b8074faf7faca47a183dbce8dce873f7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1795b6e325e4d9547a66e1a11a21466e, type: 2}
+      objectReference: {fileID: 2100000, guid: f6437cfa8e7df4344bdf87742af8e58c, type: 2}
     - target: {fileID: 919132149155446097, guid: b8074faf7faca47a183dbce8dce873f7, type: 3}
       propertyPath: m_Name
       value: bigRock
