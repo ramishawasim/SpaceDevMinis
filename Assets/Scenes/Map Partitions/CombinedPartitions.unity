@@ -778,6 +778,7 @@ MonoBehaviour:
   playerObject: {fileID: 0}
   respawnLocation: {x: 0, y: 0, z: 0}
   isDead: 0
+  skinnedMesh: {fileID: 1959977656}
 --- !u!143 &286573781
 CharacterController:
   m_ObjectHideFlags: 0

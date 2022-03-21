@@ -50,6 +50,7 @@ public class EnemyStateManager : MonoBehaviour
 
     // player object
     GameObject player;
+    SkinnedMeshRenderer skinnedMesh;
 
     void Start()
     {
@@ -67,6 +68,8 @@ public class EnemyStateManager : MonoBehaviour
         currentState.EnterState(this);
         StartCoroutine(walkPointChangeLogic());
         StartCoroutine(stateUpdate());
+
+        skinnedMesh = player.transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>();
     }
 
     IEnumerator stateUpdate()
@@ -125,6 +128,7 @@ public class EnemyStateManager : MonoBehaviour
         Debug.Log("KILL");
         // enemyAnimator.SetBool(isAttackingHash, true);
         // navMeshAgent.isStopped = true;
+        skinnedMesh.enabled = false;
         player.GetComponent<PlayerAndAnimationControllerV2>().onDeath();
         yield return new WaitForSeconds(2);
         // enemyAnimator.SetBool(isAttackingHash, false);

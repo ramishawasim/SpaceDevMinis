@@ -61,6 +61,8 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
     private Transform cameraMainTransform;
 
+    public SkinnedMeshRenderer skinnedMesh;
+
     // Platform Stuff
 
     bool onPlatform;
@@ -371,6 +373,12 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
         characterController.enabled = false;
         yield return new WaitForSeconds(2);
         animator.SetBool(isDeadHash, false);
+
+        if (skinnedMesh.enabled == false)
+        {
+            skinnedMesh.enabled = true;
+        }
+
         isDead = false;
         playerObject.transform.position = respawnLocation;
         characterController.enabled = true;
