@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SnowRock
-  m_Shader: {fileID: -6465566751694194690, guid: efd5333a24376674b87986d703717225, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 8567aa796e8dc21468962e0c420d5e7f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -47,8 +47,9 @@ Material:
     m_Floats:
     - Vector1_40801d6b9ab34b539bf813efca30cc28: 0
     - Vector1_54dd702f8ef446f788660f55c2aa89dc: 0.1
-    - Vector1_97d702e0015b4198935f181c85ba02dd: 0.75
-    - Vector1_9b99a6d61ee145b08a708d2be15db5bb: 0.0025
+    - Vector1_7f320c288ce6442cb4ef19b85bd4eacd: 0.5
+    - Vector1_97d702e0015b4198935f181c85ba02dd: 1
+    - Vector1_9b99a6d61ee145b08a708d2be15db5bb: 0.01
     - Vector1_baa0000b220147bba874c59d6d649a8c: 300
     - Vector1_f71f2e110acf438ab951c950d2da2ff2: 0
     m_Colors:
