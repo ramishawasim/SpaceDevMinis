@@ -13,13 +13,7 @@ public class SnowVFXSpawn : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (!snowVFXVolume.activeSelf)
-            {
-                snowVFXVolume.SetActive(true);
-            } else
-            {
-                snowVFXComponent.Play();
-            }
+            snowVFXComponent.Play();
         }
     }
 

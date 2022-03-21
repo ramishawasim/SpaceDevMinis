@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 public class EnemyStateManager : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class EnemyStateManager : MonoBehaviour
     // player object
     GameObject player;
     SkinnedMeshRenderer skinnedMesh;
+    public VisualEffect blood;
+
 
     void Start()
     {
@@ -70,6 +73,7 @@ public class EnemyStateManager : MonoBehaviour
         StartCoroutine(stateUpdate());
 
         skinnedMesh = player.transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>();
+        blood = player.transform.GetChild(3).gameObject.GetComponent<VisualEffect>();
     }
 
     IEnumerator stateUpdate()
@@ -129,6 +133,7 @@ public class EnemyStateManager : MonoBehaviour
         // enemyAnimator.SetBool(isAttackingHash, true);
         // navMeshAgent.isStopped = true;
         skinnedMesh.enabled = false;
+        blood.Play();
         player.GetComponent<PlayerAndAnimationControllerV2>().onDeath();
         yield return new WaitForSeconds(2);
         // enemyAnimator.SetBool(isAttackingHash, false);
