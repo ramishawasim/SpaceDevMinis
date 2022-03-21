@@ -55,7 +55,7 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     public bool isDead = false;
     int isDeadHash;
 
-    float falloffThreshold = -10f;
+    float falloffThreshold = -3f;
 
     bool isSneaking = true;
 
@@ -192,18 +192,20 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
     void handleRotation()
     {
-        float currentRotationSpeed;
-        if (!isRunPressed) {
-            currentRotationSpeed = rotationSpeed;
-        } else {
-            currentRotationSpeed = runningRotationSpeed;
-        }
+        if (!isDead) {
+            float currentRotationSpeed;
+            if (!isRunPressed) {
+                currentRotationSpeed = rotationSpeed;
+            } else {
+                currentRotationSpeed = runningRotationSpeed;
+            }
 
-        if (currentMovementInput != Vector2.zero)
-        {
-            float targetAngle = Mathf.Atan2(currentMovementInput.x, currentMovementInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
-            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * currentRotationSpeed);
+            if (currentMovementInput != Vector2.zero)
+            {
+                float targetAngle = Mathf.Atan2(currentMovementInput.x, currentMovementInput.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
+                Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * currentRotationSpeed);
+            }
         }
     }
 
