@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class ButtonPuzzleLogic : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ButtonPuzzleLogic : MonoBehaviour
     private bool canUse = true;
 
     private Renderer thisRenderer;
+
+    public VisualEffect GreenVFX;
 
     private void Start()
     {
@@ -49,6 +52,15 @@ public class ButtonPuzzleLogic : MonoBehaviour
     private void setColorGreen()
     {
         thisRenderer.material.SetFloat("_GREENNESS", 1f);
+
+        StartCoroutine(GreenSplash());
+    }
+
+    IEnumerator GreenSplash()
+    {
+        GreenVFX.Play();
+        yield return new WaitForSeconds(1.25f);
+        GreenVFX.Stop();
     }
 
     IEnumerator ChangeToBlueAfterDelay()

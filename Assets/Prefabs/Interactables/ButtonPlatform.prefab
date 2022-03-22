@@ -223,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionInPuzzleOrder: 0
   buttonPuzzleCounter: {fileID: 0}
+  GreenVFX: {fileID: 220067061984827853}
 --- !u!135 &4363441453624775642
 SphereCollider:
   m_ObjectHideFlags: 0
