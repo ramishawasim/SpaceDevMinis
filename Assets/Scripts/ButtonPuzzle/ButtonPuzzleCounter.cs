@@ -6,6 +6,7 @@ public class ButtonPuzzleCounter : MonoBehaviour
 {
     private int GlobalCounter;
     public int NumberOfPlatforms;
+    public GameObject RewardEgg;
 
     public List<ButtonPuzzleLogic> ButtonPuzzleLogics;
 
@@ -33,6 +34,7 @@ public class ButtonPuzzleCounter : MonoBehaviour
     private void PuzzleComplete()
     {
         Debug.Log("Puzzle Complete");
+        RewardEgg.SetActive(true);
     }
 
 }
