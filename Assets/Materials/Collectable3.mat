@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Collectable3
-  m_Shader: {fileID: -6465566751694194690, guid: 3662293ba2ab99d41874a5e4f1ce28f6, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 76e32b986c8e0c546b860a9aab79cd1d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -80,7 +80,7 @@ Material:
     - Vector1_7aba4c3376334a1aa59a833ef9111b11: 1
     - Vector1_7fe6d7559bfe42058214f4bfedb64617: 1
     - Vector1_9bb26ca2a1d94efc87b20f7f81139c47: 0.15
-    - Vector1_a67bc853dd4f43f6bfcfc7d27824bee8: 1
+    - Vector1_a67bc853dd4f43f6bfcfc7d27824bee8: 0.66
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
