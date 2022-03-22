@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ButtonPuzzlePlatformBASE
+  m_Shader: {fileID: -6465566751694194690, guid: d7bd9d4a005688841a843b66dfb752f3, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_4ef086b0a7fe44e5a0a4b6f9a15e71ec: 1
+    - Vector1_67043e9b655141efa3c14a4912114283: 0
+    - Vector1_7aba4c3376334a1aa59a833ef9111b11: 0.5
+    - Vector1_7fe6d7559bfe42058214f4bfedb64617: 0.999
+    - Vector1_9bb26ca2a1d94efc87b20f7f81139c47: 0
+    - Vector1_a61b4774b7494801902e8608883395a5: 0
+    - Vector1_a67bc853dd4f43f6bfcfc7d27824bee8: 0.9
+    m_Colors:
+    - Color_27a46e09b81b42f5aa0047b754344a6c: {r: 11.984314, g: 0.87843096, b: 1.3623518, a: 0}
+    - Color_2d6feea68b334a7f964887371dd8f3c1: {r: 0.8784314, g: 3.2627451, b: 11.984314, a: 0}
+    - Color_8b8b8195a200450d95ac58afe785a70c: {r: 2.6449487, g: 11.984314, b: 0.87843096, a: 0}
+    - Color_f9804465efb34325a2c115565d43fff1: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_3f78906c8a0d4773b248c7ae3acdf0af: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
