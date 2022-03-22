@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ButtonPuzzle2
+  m_Name: DefaultRewardStand
   m_Shader: {fileID: -6465566751694194690, guid: 3662293ba2ab99d41874a5e4f1ce28f6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
