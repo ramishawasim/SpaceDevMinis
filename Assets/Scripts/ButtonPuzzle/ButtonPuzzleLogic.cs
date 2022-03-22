@@ -11,18 +11,19 @@ public class ButtonPuzzleLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !buttonIsWorking)
         {
             buttonIsWorking = buttonPuzzleCounter.TryCounting(positionInPuzzleOrder);
-        }
 
-        if (buttonIsWorking)
-        {
-            Debug.Log("Platform Worked");
-            setColorGreen();
-        } else
-        {
-            Debug.Log("Platform Did Not Work");
+            if (buttonIsWorking)
+            {
+                Debug.Log("Platform Worked");
+                setColorGreen();
+            }
+            else
+            {
+                Debug.Log("Platform Did Not Work");
+            }
         }
     }
 
