@@ -13,6 +13,8 @@ public class Platform1OnTriggerEnter : MonoBehaviour
     private VisualEffect TrailVFX;
     private GameObject killTruncatedIcosahedron;
 
+    public GameObject RewardEgg;
+
     private void Start()
     {
         pushCollider = GameObject.FindGameObjectWithTag("PushCollider");
@@ -30,6 +32,8 @@ public class Platform1OnTriggerEnter : MonoBehaviour
         if (other.tag == "PushCollider")
         {
             Debug.Log("Platform Success");
+
+            RewardEgg.SetActive(true);
 
             pushCollider.GetComponent<Rigidbody>().isKinematic = false;
             //pushCollider.GetComponent<SphereCollider>().enabled = false;
