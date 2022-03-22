@@ -1680,7 +1680,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "422de13c6280454a8ce4038819630332",
     "m_Id": 0,
-    "m_DisplayName": "_Redness",
+    "m_DisplayName": "_REDNESS",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1888,7 +1888,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "506aac1c4e904bc99b4300976096c399",
     "m_Id": 0,
-    "m_DisplayName": "_Greenness",
+    "m_DisplayName": "_GREENNESS",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -2037,9 +2037,9 @@
     "m_Guid": {
         "m_GuidSerialized": "6c6349c0-d6c5-45e3-bf5b-affb58419981"
     },
-    "m_Name": "_Greenness",
+    "m_Name": "_GREENNESS",
     "m_DefaultReferenceName": "Vector1_67043e9b655141efa3c14a4912114283",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_GREENNESS",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -2740,9 +2740,9 @@
     "m_Guid": {
         "m_GuidSerialized": "3e5ef956-aace-4f82-a677-8a4ca1289608"
     },
-    "m_Name": "_Redness",
+    "m_Name": "_REDNESS",
     "m_DefaultReferenceName": "Vector1_a61b4774b7494801902e8608883395a5",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_REDNESS",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

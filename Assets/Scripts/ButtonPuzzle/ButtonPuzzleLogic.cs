@@ -10,6 +10,13 @@ public class ButtonPuzzleLogic : MonoBehaviour
     bool buttonIsGreen;
     private bool canUse = true;
 
+    private Renderer thisRenderer;
+
+    private void Start()
+    {
+        thisRenderer = gameObject.GetComponent<Renderer>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && canUse)
@@ -32,11 +39,21 @@ public class ButtonPuzzleLogic : MonoBehaviour
     public void setColorRedThenResetToBlue()
     {
         Debug.Log("set color red" + positionInPuzzleOrder);
+        thisRenderer.material.SetFloat("_REDNESS", 1f);
+        thisRenderer.material.SetFloat("_GREENNESS", 0f);
         canUse = true;
+
+        StartCoroutine(ChangeToBlueAfterDelay());
     }
 
     private void setColorGreen()
     {
+        thisRenderer.material.SetFloat("_GREENNESS", 1f);
+    }
 
+    IEnumerator ChangeToBlueAfterDelay()
+    {
+        yield return new WaitForSeconds(1);
+        thisRenderer.material.SetFloat("_REDNESS", 0f);
     }
 }
