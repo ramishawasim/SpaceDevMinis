@@ -779,6 +779,7 @@ MonoBehaviour:
   respawnLocation: {x: 0, y: 0, z: 0}
   isDead: 0
   skinnedMesh: {fileID: 1959977656}
+  snowVFX: {fileID: 1303768538}
 --- !u!143 &286573781
 CharacterController:
   m_ObjectHideFlags: 0

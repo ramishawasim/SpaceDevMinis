@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class PlayerAndAnimationControllerV2 : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     private Transform cameraMainTransform;
 
     public SkinnedMeshRenderer skinnedMesh;
+    public VisualEffect snowVFX;
 
     // Platform Stuff
 
@@ -381,6 +383,11 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
 
         isDead = false;
         playerObject.transform.position = respawnLocation;
+
+        if (transform.position.y < 25f)
+        {
+            snowVFX.Stop();
+        }
         characterController.enabled = true;
     }
 
