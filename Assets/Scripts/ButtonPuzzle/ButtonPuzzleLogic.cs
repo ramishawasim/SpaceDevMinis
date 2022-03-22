@@ -7,15 +7,17 @@ public class ButtonPuzzleLogic : MonoBehaviour
     public int positionInPuzzleOrder;
     public ButtonPuzzleCounter buttonPuzzleCounter;
 
-    bool buttonIsWorking;
+    bool buttonIsGreen;
+    private bool canUse = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && !buttonIsWorking)
+        if (other.tag == "Player" && canUse)
         {
-            buttonIsWorking = buttonPuzzleCounter.TryCounting(positionInPuzzleOrder);
+            canUse = false;
+            buttonIsGreen = buttonPuzzleCounter.TryCounting(positionInPuzzleOrder);
 
-            if (buttonIsWorking)
+            if (buttonIsGreen)
             {
                 Debug.Log("Platform Worked");
                 setColorGreen();
@@ -30,6 +32,7 @@ public class ButtonPuzzleLogic : MonoBehaviour
     public void setColorRedThenResetToBlue()
     {
         Debug.Log("set color red" + positionInPuzzleOrder);
+        canUse = true;
     }
 
     private void setColorGreen()

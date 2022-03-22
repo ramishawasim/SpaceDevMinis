@@ -23,7 +23,7 @@ public class ButtonPuzzleCounter : MonoBehaviour
         } else
         {
             GlobalCounter = 0;
-            for (int i = 0; i < NumberOfPlatforms - 1; i++)
+            for (int i = 0; i < NumberOfPlatforms; i++)
             {
                 ButtonPuzzleLogics[i].setColorRedThenResetToBlue();
             }
