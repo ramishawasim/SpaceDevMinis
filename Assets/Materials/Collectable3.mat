@@ -82,6 +82,7 @@ Material:
     - Vector1_7fe6d7559bfe42058214f4bfedb64617: 1
     - Vector1_9bb26ca2a1d94efc87b20f7f81139c47: 1
     - Vector1_a67bc853dd4f43f6bfcfc7d27824bee8: 0.01
+    - _ALPHA: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

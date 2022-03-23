@@ -1160,7 +1160,7 @@
     },
     "m_Name": "_ALPHA",
     "m_DefaultReferenceName": "Vector1_464953d5542142d585a20edf83effb0e",
-    "m_OverrideReferenceName": "ALPHA",
+    "m_OverrideReferenceName": "_ALPHA",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
