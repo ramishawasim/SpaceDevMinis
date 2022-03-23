@@ -9,11 +9,12 @@ public class ButtonPuzzleLogic : MonoBehaviour
     public ButtonPuzzleCounter buttonPuzzleCounter;
 
     bool buttonIsGreen;
-    private bool canUse = true;
+    public bool canUse = true;
 
     private Renderer thisRenderer;
 
     public VisualEffect GreenVFX;
+    public VisualEffect RedVFX;
 
     private void Start()
     {
@@ -44,7 +45,9 @@ public class ButtonPuzzleLogic : MonoBehaviour
         Debug.Log("set color red" + positionInPuzzleOrder);
         thisRenderer.material.SetFloat("_REDNESS", 1f);
         thisRenderer.material.SetFloat("_GREENNESS", 0f);
-        canUse = true;
+
+        GreenVFX.Stop();
+        RedVFX.Play();
 
         StartCoroutine(ChangeToBlueAfterDelay());
     }
@@ -52,8 +55,9 @@ public class ButtonPuzzleLogic : MonoBehaviour
     private void setColorGreen()
     {
         thisRenderer.material.SetFloat("_GREENNESS", 1f);
+        GreenVFX.Play();
 
-        StartCoroutine(GreenSplash());
+        // StartCoroutine(GreenSplash());
     }
 
     IEnumerator GreenSplash()
@@ -66,6 +70,11 @@ public class ButtonPuzzleLogic : MonoBehaviour
     IEnumerator ChangeToBlueAfterDelay()
     {
         yield return new WaitForSeconds(1);
-        thisRenderer.material.SetFloat("_REDNESS", 0f);
+
+        for (float redness = 1f; redness >= 0; redness -= 0.1f)
+        {
+            thisRenderer.material.SetFloat("_REDNESS", redness);
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }

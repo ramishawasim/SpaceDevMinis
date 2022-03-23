@@ -26,6 +26,7 @@ public class ButtonPuzzleCounter : MonoBehaviour
             for (int i = 0; i < NumberOfPlatforms; i++)
             {
                 ButtonPuzzleLogics[i].setColorRedThenResetToBlue();
+                StartCoroutine(enableButtonsAfterDelay());
             }
             return false;
         }
@@ -35,6 +36,25 @@ public class ButtonPuzzleCounter : MonoBehaviour
     {
         Debug.Log("Puzzle Complete");
         RewardEgg.SetActive(true);
+        StartCoroutine(TurnOffGreenVFX());
+    }
+
+    IEnumerator enableButtonsAfterDelay()
+    {
+        yield return new WaitForSeconds(2);
+        for (int i = 0; i < NumberOfPlatforms; i++)
+        {
+            ButtonPuzzleLogics[i].canUse = true;
+        }
+    }
+
+    IEnumerator TurnOffGreenVFX()
+    {
+        yield return new WaitForSeconds(1.25f);
+        for (int i = 0; i < NumberOfPlatforms; i++)
+        {
+            ButtonPuzzleLogics[i].GreenVFX.Stop();
+        }
     }
 
 }
