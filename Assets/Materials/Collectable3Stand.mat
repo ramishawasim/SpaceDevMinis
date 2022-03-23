@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Collectable3
-  m_Shader: {fileID: -6465566751694194690, guid: 79167df36e4858c4898442090e4c82a8, type: 3}
+  m_Name: Collectable3Stand
+  m_Shader: {fileID: -6465566751694194690, guid: 76e32b986c8e0c546b860a9aab79cd1d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -76,7 +76,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - ALPHA: 0
     - Vector1_4ef086b0a7fe44e5a0a4b6f9a15e71ec: 2.5
     - Vector1_7aba4c3376334a1aa59a833ef9111b11: 1
     - Vector1_7fe6d7559bfe42058214f4bfedb64617: 1
