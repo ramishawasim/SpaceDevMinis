@@ -4687,6 +4687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739bcdd637d464240b16a9181efbcfbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChocoRenderer: {fileID: 1959977656}
 --- !u!1 &1848280792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5006,7 +5007,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef7750fb564cccf4daa046dc2d07df44, type: 2}
+  - {fileID: 2100000, guid: b1ad9b4a2631b7a4db4859b7cc3f3e40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
