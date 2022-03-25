@@ -14,6 +14,8 @@ public class EnemyChaseState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
+        enemy.growlLogic();
+
         enemy.playerInSightRange = Physics.CheckSphere(enemy.navMeshAgent.transform.position, enemy.sightRange, enemy.whatIsPlayer);
         enemy.navMeshAgent.CalculatePath(enemy.playerPositionTransform.position, enemy.path);
         if (enemy.path.status == NavMeshPathStatus.PathComplete)

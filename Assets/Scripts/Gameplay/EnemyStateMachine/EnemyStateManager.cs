@@ -56,6 +56,11 @@ public class EnemyStateManager : MonoBehaviour
 
     private AudioSource bite;
 
+    // Animal Sounds
+
+    public AudioSource growl;
+
+    public bool hasGrowled;
 
     void Start()
     {
@@ -91,6 +96,7 @@ public class EnemyStateManager : MonoBehaviour
     public void SwitchState(EnemyBaseState state)
     {
         currentState = state;
+        hasGrowled = false;
         state.EnterState(this);
     }
 
@@ -149,5 +155,21 @@ public class EnemyStateManager : MonoBehaviour
         //see range
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+    public void growlLogic()
+    {
+        if (!growl.isPlaying && !hasGrowled)
+        {
+            float r = Random.Range(0f, 0.33f);
+            hasGrowled = true;
+            StartCoroutine(growlDelay(r));
+        }
+    }
+
+    IEnumerator growlDelay(float r)
+    {
+        yield return new WaitForSeconds(r);
+        growl.Play();
     }
 }

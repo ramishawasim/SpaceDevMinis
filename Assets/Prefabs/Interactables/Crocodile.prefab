@@ -285,9 +285,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e86d9b70934225147ba1996fb3e5be09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e69bec5f8de640342a2e940db2fc6684, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -663,6 +663,7 @@ MonoBehaviour:
   stateUpdateTime: 0.2
   blood: {fileID: 0}
   growl: {fileID: 2828310817849874979}
+  hasGrowled: 0
 --- !u!1 &7208980765935849577
 GameObject:
   m_ObjectHideFlags: 0
