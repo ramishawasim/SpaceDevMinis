@@ -5,11 +5,14 @@ using UnityEngine;
 public class KillPlayerOnTouch : MonoBehaviour
 {
     private GameObject player;
-    public Renderer ChocoRenderer;
+    private Renderer ChocoRenderer;
+    private AudioSource burnSound;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        burnSound = player.transform.GetChild(5).gameObject.GetComponent<AudioSource>();
+        ChocoRenderer = player.transform.GetChild(0).gameObject.GetComponent<Renderer>();
     }
 
     private void OnTriggerEnter(Collider hit)
@@ -17,6 +20,7 @@ public class KillPlayerOnTouch : MonoBehaviour
         if (hit.tag == "Player")
         {
             player.GetComponent<PlayerAndAnimationControllerV2>().onDeath();
+            burnSound.Play();
             StartCoroutine(DissolvePlayer());
         }
     }

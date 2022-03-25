@@ -16,6 +16,9 @@ public class ButtonPuzzleLogic : MonoBehaviour
     public VisualEffect GreenVFX;
     public VisualEffect RedVFX;
 
+    public AudioSource GreenVFXSOUND;
+    public AudioSource RedVFXSOUND;
+
     private void Start()
     {
         thisRenderer = gameObject.GetComponent<Renderer>();
@@ -36,6 +39,7 @@ public class ButtonPuzzleLogic : MonoBehaviour
             else
             {
                 Debug.Log("Platform Did Not Work");
+                RedVFXSOUND.Play();
             }
         }
     }
@@ -56,6 +60,7 @@ public class ButtonPuzzleLogic : MonoBehaviour
     {
         thisRenderer.material.SetFloat("_GREENNESS", 1f);
         GreenVFX.Play();
+        GreenVFXSOUND.Play();
 
         // StartCoroutine(GreenSplash());
     }
