@@ -54,6 +54,8 @@ public class EnemyStateManager : MonoBehaviour
     SkinnedMeshRenderer skinnedMesh;
     public VisualEffect blood;
 
+    private AudioSource bite;
+
 
     void Start()
     {
@@ -74,6 +76,7 @@ public class EnemyStateManager : MonoBehaviour
 
         skinnedMesh = player.transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>();
         blood = player.transform.GetChild(3).gameObject.GetComponent<VisualEffect>();
+        bite = player.transform.GetChild(4).gameObject.GetComponent<AudioSource>();
     }
 
     IEnumerator stateUpdate()
@@ -133,6 +136,7 @@ public class EnemyStateManager : MonoBehaviour
         // enemyAnimator.SetBool(isAttackingHash, true);
         // navMeshAgent.isStopped = true;
         skinnedMesh.enabled = false;
+        bite.Play();
         blood.Play();
         player.GetComponent<PlayerAndAnimationControllerV2>().onDeath();
         yield return new WaitForSeconds(2);
