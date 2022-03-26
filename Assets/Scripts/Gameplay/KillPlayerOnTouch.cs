@@ -31,9 +31,9 @@ public class KillPlayerOnTouch : MonoBehaviour
         {
             ChocoRenderer.material.SetFloat("_DISSOLVE", dissolve);
             Debug.Log("fadein" + dissolve);
-            yield return new WaitForSeconds(.0175f);
+            yield return new WaitForSeconds(.01f);
         }
-
+        yield return new WaitForSeconds(0.6025f);
         ChocoRenderer.material.SetFloat("_DISSOLVE", 0f);
     }
 }
