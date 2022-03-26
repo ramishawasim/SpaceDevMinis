@@ -33,7 +33,7 @@ public class KillPlayerOnTouch : MonoBehaviour
             Debug.Log("fadein" + dissolve);
             yield return new WaitForSeconds(.01f);
         }
-        yield return new WaitForSeconds(0.6025f);
+        yield return new WaitForSeconds(0.65f);
         ChocoRenderer.material.SetFloat("_DISSOLVE", 0f);
     }
 }
