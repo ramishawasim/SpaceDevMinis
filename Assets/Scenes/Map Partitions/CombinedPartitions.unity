@@ -1316,7 +1316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.95
+      value: 11.025
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3000,7 +3000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739bcdd637d464240b16a9181efbcfbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChocoRenderer: {fileID: 1959977656}
 --- !u!64 &1035752703
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5757,7 +5756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26
+      value: 26.025
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6091,7 +6090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.95
+      value: 3.025
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6840,7 +6839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.95
+      value: 36.025
       objectReference: {fileID: 0}
     - target: {fileID: 7349589725717133559, guid: 2486e8e6528cbd3429fde239aa63a2f6, type: 3}
       propertyPath: m_LocalPosition.z
