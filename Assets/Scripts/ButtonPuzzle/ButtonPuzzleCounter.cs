@@ -36,6 +36,7 @@ public class ButtonPuzzleCounter : MonoBehaviour
     {
         Debug.Log("Puzzle Complete");
         RewardEgg.SetActive(true);
+
         StartCoroutine(TurnOffGreenVFX());
     }
 
@@ -50,11 +51,15 @@ public class ButtonPuzzleCounter : MonoBehaviour
 
     IEnumerator TurnOffGreenVFX()
     {
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(0.01f);
+        for (int i = 0; i < NumberOfPlatforms; i++)
+        {
+            ButtonPuzzleLogics[i].Hum.Stop();
+        }
+        yield return new WaitForSeconds(1.24f);
         for (int i = 0; i < NumberOfPlatforms; i++)
         {
             ButtonPuzzleLogics[i].GreenVFX.Stop();
-            ButtonPuzzleLogics[i].Hum.Stop();
         }
     }
 
