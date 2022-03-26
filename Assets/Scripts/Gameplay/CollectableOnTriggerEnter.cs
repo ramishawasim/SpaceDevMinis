@@ -17,6 +17,8 @@ public class CollectableOnTriggerEnter : MonoBehaviour
     private GameObject particleSystem1;
     private GameObject particleSystem2;
 
+    private Inventory inventoryComponent;
+
     private void Awake()
     {
         if (collectableNumber == 1)
@@ -44,6 +46,7 @@ public class CollectableOnTriggerEnter : MonoBehaviour
         renderedLight = renderedEgg.transform.GetChild(0).gameObject;
         particleSystem1 = renderedEgg.transform.GetChild(1).gameObject;
         particleSystem2 = renderedEgg.transform.GetChild(2).gameObject;
+        inventoryComponent = inventory.GetComponent<Inventory>();
     }
 
     private void OnTriggerEnter(Collider hit)
@@ -55,12 +58,12 @@ public class CollectableOnTriggerEnter : MonoBehaviour
             // Update player inventory
             if (collectableNumber == 1)
             {
-                inventory.GetComponent<Inventory>().collectable1Counter++;
+                inventoryComponent.collectable1Counter++;
             } else if (collectableNumber == 2)
             {
-                inventory.GetComponent<Inventory>().collectable2Counter++;
+                inventoryComponent.collectable2Counter++;
             } else if (collectableNumber == 3) {
-                inventory.GetComponent<Inventory>().collectable3Counter++;
+                inventoryComponent.collectable3Counter++;
             }
 
             // The script doesn't know the collectable count without this
@@ -68,10 +71,7 @@ public class CollectableOnTriggerEnter : MonoBehaviour
             collectable++;
 
             // Collectable Events
-            if (inventory.GetComponent<Inventory>().collectable1Counter == 50)
-            {
-                Debug.Log("50 GOLD COLLECTABLES");
-            }
+            inventoryComponent.collectableEvents();
 
             // Disabling/Enabling stuff
             gameObject.GetComponent<SphereCollider>().enabled = false;
