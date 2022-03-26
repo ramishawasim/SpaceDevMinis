@@ -54,6 +54,7 @@ public class ButtonPuzzleCounter : MonoBehaviour
         for (int i = 0; i < NumberOfPlatforms; i++)
         {
             ButtonPuzzleLogics[i].GreenVFX.Stop();
+            ButtonPuzzleLogics[i].Hum.Stop();
         }
     }
 

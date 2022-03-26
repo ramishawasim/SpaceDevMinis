@@ -18,6 +18,7 @@ public class ButtonPuzzleLogic : MonoBehaviour
 
     public AudioSource GreenVFXSOUND;
     public AudioSource RedVFXSOUND;
+    public AudioSource Hum;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class ButtonPuzzleLogic : MonoBehaviour
         thisRenderer.material.SetFloat("_GREENNESS", 0f);
 
         GreenVFX.Stop();
+        Hum.Stop();
         RedVFX.Play();
 
         StartCoroutine(ChangeToBlueAfterDelay());
@@ -61,6 +63,7 @@ public class ButtonPuzzleLogic : MonoBehaviour
         thisRenderer.material.SetFloat("_GREENNESS", 1f);
         GreenVFX.Play();
         GreenVFXSOUND.Play();
+        Hum.Play();
 
         // StartCoroutine(GreenSplash());
     }
