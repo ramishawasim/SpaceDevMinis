@@ -25,6 +25,7 @@ public class ButtonPuzzleCounter : MonoBehaviour
             GlobalCounter = 0;
             for (int i = 0; i < NumberOfPlatforms; i++)
             {
+                ButtonPuzzleLogics[i].canUse = false;
                 ButtonPuzzleLogics[i].setColorRedThenResetToBlue();
                 StartCoroutine(enableButtonsAfterDelay());
             }
