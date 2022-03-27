@@ -15,12 +15,11 @@ public class MovingSign : MonoBehaviour
     private void Start()
     {
         center = transform.position;
-        transform.rotation = Quaternion.Euler(tiltAroundX, 0f, 0f);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.RotateAround(center, Vector3.right, rotationAmount * Mathf.Sin((Time.fixedTime) * Mathf.PI * frequency));
+        transform.RotateAround(center, transform.right, rotationAmount * Mathf.Sin((Time.fixedTime) * Mathf.PI * frequency));
     }
 }
