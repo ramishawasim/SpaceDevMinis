@@ -70,6 +70,10 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
     bool onPlatform;
     Vector3 externalMovement;
 
+    //flap
+
+    public AudioSource JumpSound;
+
     private void Awake()
     {
         // initial setting of reference variables
@@ -113,6 +117,9 @@ public class PlayerAndAnimationControllerV2 : MonoBehaviour
             animator.SetBool(isJumpingHash, true);
             isJumpAnimating = true;
             isJumping = true;
+
+            JumpSound.Play();
+
             currentMovement.y = initialJumpVelocity;
             appliedMovement.y = initialJumpVelocity;
             movementWhenJumped.x = currentMovement.x;
