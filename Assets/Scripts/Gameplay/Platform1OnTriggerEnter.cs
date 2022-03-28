@@ -14,6 +14,7 @@ public class Platform1OnTriggerEnter : MonoBehaviour
     private GameObject killTruncatedIcosahedron;
 
     public GameObject RewardEgg;
+    public GameObject RadiusEnter;
 
     private void Start()
     {
@@ -43,7 +44,15 @@ public class Platform1OnTriggerEnter : MonoBehaviour
             InnerBallMeshRenderer.enabled = false;
             SpinningInnerBall.enabled = false;
             TrailVFX.Stop();
-            killTruncatedIcosahedron.SetActive(true);            
+            killTruncatedIcosahedron.SetActive(true);
+
+            StartCoroutine(killBallPuzzle());
         }
+    }
+
+    IEnumerator killBallPuzzle()
+    {
+        yield return new WaitForSeconds(5);
+        RadiusEnter.SetActive(false);
     }
 }
