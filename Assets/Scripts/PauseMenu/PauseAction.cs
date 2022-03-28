@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PauseAction.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PauseMenu/PauseAction.inputactions'
 
 using System;
 using System.Collections;
@@ -40,6 +40,33 @@ public class @PauseAction : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Interaction"",
+            ""id"": ""f4fd0cc1-84be-44c2-8575-3ede5a3c25e5"",
+            ""actions"": [
+                {
+                    ""name"": ""InteractionAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""efdf48d8-ce8b-41c8-9b2e-d77a98fa488f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e249c61a-c68e-471d-8e4d-31caeb740303"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractionAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -47,6 +74,9 @@ public class @PauseAction : IInputActionCollection, IDisposable
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_PauseGame = m_Pause.FindAction("PauseGame", throwIfNotFound: true);
+        // Interaction
+        m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
+        m_Interaction_InteractionAction = m_Interaction.FindAction("InteractionAction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -125,8 +155,45 @@ public class @PauseAction : IInputActionCollection, IDisposable
         }
     }
     public PauseActions @Pause => new PauseActions(this);
+
+    // Interaction
+    private readonly InputActionMap m_Interaction;
+    private IInteractionActions m_InteractionActionsCallbackInterface;
+    private readonly InputAction m_Interaction_InteractionAction;
+    public struct InteractionActions
+    {
+        private @PauseAction m_Wrapper;
+        public InteractionActions(@PauseAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @InteractionAction => m_Wrapper.m_Interaction_InteractionAction;
+        public InputActionMap Get() { return m_Wrapper.m_Interaction; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractionActions set) { return set.Get(); }
+        public void SetCallbacks(IInteractionActions instance)
+        {
+            if (m_Wrapper.m_InteractionActionsCallbackInterface != null)
+            {
+                @InteractionAction.started -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInteractionAction;
+                @InteractionAction.performed -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInteractionAction;
+                @InteractionAction.canceled -= m_Wrapper.m_InteractionActionsCallbackInterface.OnInteractionAction;
+            }
+            m_Wrapper.m_InteractionActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @InteractionAction.started += instance.OnInteractionAction;
+                @InteractionAction.performed += instance.OnInteractionAction;
+                @InteractionAction.canceled += instance.OnInteractionAction;
+            }
+        }
+    }
+    public InteractionActions @Interaction => new InteractionActions(this);
     public interface IPauseActions
     {
         void OnPauseGame(InputAction.CallbackContext context);
+    }
+    public interface IInteractionActions
+    {
+        void OnInteractionAction(InputAction.CallbackContext context);
     }
 }
