@@ -12,7 +12,7 @@ public class SignCollision : MonoBehaviour
 
     private void Start()
     {
-        InteractPrompt = GameObject.Find("InteractPrompt");
+       // InteractPrompt = GameObject.Find("InteractPrompt");
     }
 
 
@@ -22,7 +22,7 @@ public class SignCollision : MonoBehaviour
         if (hit.tag == "Player")
         {
             Debug.Log("CAN INTERACT WITH SIGN");
-            //InteractPrompt.SetActive(true);
+            InteractPrompt.SetActive(true);
         }
     }
 
@@ -31,7 +31,7 @@ public class SignCollision : MonoBehaviour
         if (hit.tag == "Player")
         {
             Debug.Log("CANNOT INTERACT WITH SIGN");
-            //InteractPrompt.SetActive(false);
+            InteractPrompt.SetActive(false);
         }
     }
 
