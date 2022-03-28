@@ -11,15 +11,20 @@ public class MovingSign : MonoBehaviour
     public float rotationAmount = 0.075f;
     public float frequency = 1f;
     public float tiltAroundX = -15f;
+    private GameObject PauseMenu;
 
     private void Start()
     {
         center = transform.position;
+        PauseMenu = GameObject.Find("UI").transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.RotateAround(center, transform.right, rotationAmount * Mathf.Sin((Time.fixedTime) * Mathf.PI * frequency));
+        if (!PauseMenu.activeSelf)
+        {
+            transform.RotateAround(center, transform.right, rotationAmount * Mathf.Sin((Time.fixedTime) * Mathf.PI * frequency));
+        }
     }
 }
