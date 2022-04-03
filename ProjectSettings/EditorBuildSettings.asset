@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map Partitions/Volcano.unity
     guid: f14814a390f9a13488a569b77083a6bf
+  - enabled: 1
+    path: Assets/Scenes/Map Partitions/EndScene.unity
+    guid: 94f1ca1210c5c4b4ca66585cbcb6e367
   m_configObjects: {}
