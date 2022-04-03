@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour
         if (collectable3Counter == 5)
         {
             Debug.Log("5 PURPLE COLLECTABLES");
+            SceneManager.LoadScene(9);
         }
     }
 }
