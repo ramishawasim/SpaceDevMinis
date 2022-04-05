@@ -8,23 +8,27 @@ public class MovingSign : MonoBehaviour
 
 
     // 1f rotationAmount is complete circle
-    public float rotationAmount = 0.075f;
-    public float frequency = 1f;
-    public float tiltAroundX = -15f;
-    private GameObject PauseMenu;
+    private float rotationAmplitude = 7.5f;
+    private float frequency = 3f;
+
+    private GameObject pauseMenu;
 
     private void Start()
     {
         center = transform.position;
-        PauseMenu = GameObject.Find("UI").transform.GetChild(0).gameObject;
+        transform.RotateAround(center, transform.right, -7.5f);
+
+        pauseMenu = GameObject.Find("UI").transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (!PauseMenu.activeSelf)
+        // rotationAmount * Mathf.Sin((Time.fixedTime) * Mathf.PI * frequency)
+        if (!pauseMenu.activeSelf)
         {
-            transform.RotateAround(center, transform.right, rotationAmount * Mathf.Sin((Time.fixedTime) * Mathf.PI * frequency));
+            float finalRotation = Mathf.Sin(Time.time * frequency) / rotationAmplitude;
+            transform.RotateAround(center, transform.right, finalRotation);
         }
     }
 }
