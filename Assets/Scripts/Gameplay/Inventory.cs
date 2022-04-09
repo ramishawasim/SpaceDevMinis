@@ -26,9 +26,9 @@ public class Inventory : MonoBehaviour
             blueAwardEgg.SetActive(true);
         }
 
-        if (collectable3Counter == 5)
+        if (collectable3Counter == 6)
         {
-            Debug.Log("5 PURPLE COLLECTABLES");
+            Debug.Log("6 PURPLE COLLECTABLES");
             SceneManager.LoadScene(10);
         }
     }
