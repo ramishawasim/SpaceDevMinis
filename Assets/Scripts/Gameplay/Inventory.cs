@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
         if (collectable3Counter == 5)
         {
             Debug.Log("5 PURPLE COLLECTABLES");
-            SceneManager.LoadScene(9);
+            SceneManager.LoadScene(10);
         }
     }
 }
